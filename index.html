@@ -1,0 +1,1243 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ノーティス安全運転塾｜安全運転パーソナル診断</title>
+  <meta name="description" content="あなたの運転映像から、事故リスクを専門家が診断。安全運転パーソナル診断は、映像とレポートで改善ポイントを確認する個人向け診断サービスです。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f3e6d;
+      --blue: #166ed0;
+      --sky: #eaf5ff;
+      --pale: #f4f9fe;
+      --orange: #ff8a00;
+      --orange-dark: #e87500;
+      --green: #24a36b;
+      --ink: #243240;
+      --muted: #617286;
+      --line: #dce9f6;
+      --card: #fff;
+      --shadow: 0 18px 46px rgba(15, 62, 109, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", system-ui, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
+    .section { padding: 76px 0; }
+    .section-soft { background: var(--pale); }
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-align: center;
+      margin: 0 0 8px;
+    }
+    .title {
+      color: var(--navy);
+      font-size: clamp(25px, 3.2vw, 36px);
+      line-height: 1.45;
+      font-weight: 900;
+      text-align: center;
+      margin: 0;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: 15.5px;
+      text-align: center;
+      max-width: 780px;
+      margin: 16px auto 0;
+    }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(15, 62, 109, .06);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 15px;
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 12px 26px rgba(255, 138, 0, .28); }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-secondary { background: #fff; color: var(--blue); border: 1.5px solid #b8d6f4; }
+    .btn-dark { background: var(--navy); color: #fff; }
+    .btn-line { background: #06c755; color: #fff; }
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, .95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e8eef5;
+    }
+    .header-inner {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 16px;
+    }
+    .brand-text { color: var(--navy); font-weight: 900; font-size: 17px; letter-spacing: .02em; }
+    .nav { display: flex; align-items: center; gap: 18px; font-size: 13px; font-weight: 700; color: #3d5066; }
+    .nav a { text-decoration: none; }
+    .nav .nav-cta { padding: 10px 16px; background: var(--orange); color: #fff; border-radius: 999px; }
+    .hamburger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 0;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex-direction: column;
+      box-shadow: 0 8px 18px rgba(15, 62, 109, .08);
+    }
+    .hamburger span {
+      width: 18px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--navy);
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, .98);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 18px 34px rgba(15, 62, 109, .14);
+      padding: 14px 16px 18px;
+    }
+    .mobile-nav-inner {
+      width: min(100%, 420px);
+      margin: 0 auto;
+      display: grid;
+      gap: 8px;
+    }
+    .mobile-nav a {
+      display: block;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .mobile-nav .nav-cta {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+      text-align: center;
+    }
+    .header.menu-open .mobile-nav { display: block; }
+    .header.menu-open .hamburger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .header.menu-open .hamburger span:nth-child(2) { opacity: 0; }
+    .header.menu-open .hamburger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 6%, rgba(62, 153, 226, .22), transparent 34%),
+        linear-gradient(135deg, #f6fbff 0%, #eaf5ff 52%, #fff 100%);
+      padding: 62px 0 58px;
+    }
+    .hero::before {
+      content: "";
+      display: none;
+      position: absolute;
+      background: linear-gradient(90deg, rgba(234, 245, 255, .76), rgba(234, 245, 255, .2)), url("assets/hero-driver.png") center/cover;
+      pointer-events: none;
+    }
+    .hero .wrap { position: relative; z-index: 1; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      gap: 42px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--blue);
+      border: 1px solid #c7ddf5;
+      border-radius: 999px;
+      padding: 8px 15px;
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 6px 18px rgba(15, 62, 109, .07);
+    }
+    .hero h1 {
+      color: var(--navy);
+      font-size: clamp(30px, 4.3vw, 54px);
+      line-height: 1.28;
+      letter-spacing: .01em;
+      font-weight: 900;
+      margin: 22px 0 20px;
+    }
+    .hero h1 .line {
+      display: block;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+    .hero h1 .line-tight { font-size: .82em; }
+    .hero h1 .accent { color: var(--blue); }
+    .hero-copy { color: #3d5066; font-size: 16px; max-width: 640px; margin: 0 0 14px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 0; }
+    .point {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 13px;
+      color: #42536a;
+      font-size: 12.5px;
+      font-weight: 700;
+      min-height: 70px;
+    }
+    .point strong { display: block; color: var(--navy); font-size: 15px; }
+    .visual {
+      position: relative;
+      min-height: 520px;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0 0 auto auto;
+      width: 100%;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+    .hero-photo img { width: 100%; height: 360px; object-fit: cover; object-position: center; }
+    .hero-price {
+      position: absolute;
+      left: 0;
+      bottom: 24px;
+      width: min(440px, 92%);
+      padding: 22px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+    .hero-price .label { color: var(--muted); font-size: 13px; font-weight: 900; }
+    .hero-price .name { color: var(--navy); font-size: 21px; font-weight: 900; margin: 2px 0 4px; }
+    .hero-price .price { color: var(--blue); font-size: 40px; font-weight: 900; line-height: 1.1; }
+    .hero-price .price small { color: #42536a; font-size: 15px; }
+    .worry-layout {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+    .worry-panel {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 14px 34px rgba(15, 62, 109, .08);
+    }
+    .worry-photo {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #eaf5ff;
+    }
+    .worry-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .worry-photo::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 45%;
+      background: linear-gradient(180deg, rgba(15, 62, 109, 0), rgba(15, 62, 109, .64));
+    }
+    .worry-label {
+      position: absolute;
+      left: 18px;
+      bottom: 16px;
+      z-index: 1;
+      display: inline-flex;
+      min-height: 32px;
+      align-items: center;
+      padding: 6px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .94);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(15, 62, 109, .12);
+    }
+    .worry-body { padding: 24px; }
+    .worry-body h3 {
+      color: var(--navy);
+      margin: 0 0 16px;
+      font-size: 21px;
+      line-height: 1.45;
+      font-weight: 900;
+    }
+    .worry-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .worry-list li {
+      position: relative;
+      padding-left: 18px;
+      color: #42536a;
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+    .worry-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .78em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    .problem-card { padding: 22px; min-height: 142px; }
+    .problem-card .icon,
+    .small-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: #edf6ff;
+      color: var(--blue);
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+    .problem-card h3,
+    .feature h3 {
+      color: var(--navy);
+      margin: 0 0 6px;
+      font-size: 17px;
+      line-height: 1.5;
+      font-weight: 900;
+    }
+    .problem-card p,
+    .feature p { color: var(--muted); font-size: 14px; margin: 0; }
+    .message-box {
+      margin: 34px auto 0;
+      max-width: 850px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px 28px;
+      color: #42536a;
+      box-shadow: 0 10px 28px rgba(15, 62, 109, .06);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .about-photo {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+    .about-text h2,
+    .diagnosis-text h2 {
+      color: var(--navy);
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.45;
+      margin: 0 0 18px;
+      font-weight: 900;
+    }
+    .about-text p,
+    .diagnosis-text p { color: #42536a; margin: 0 0 14px; }
+    .philosophy {
+      margin-top: 20px;
+      background: var(--navy);
+      color: #edf6ff;
+      border-radius: 18px;
+      padding: 20px 22px;
+      font-weight: 700;
+    }
+    .philosophy strong { color: #fff; }
+
+    .diagnosis {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 30px;
+      align-items: center;
+    }
+    .diagnosis-panel {
+      padding: 28px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+    .included { display: grid; gap: 10px; margin-top: 20px; }
+    .included div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #42536a;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .included span { color: var(--green); font-weight: 900; }
+    .notice {
+      background: #fff8ed;
+      border: 1px solid #ffd6a3;
+      border-radius: 14px;
+      padding: 16px 18px;
+      color: #6d4a12;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 18px;
+    }
+
+    .sample-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 24px; margin-top: 34px; }
+    .sample-value-grid { grid-template-columns: repeat(2, 1fr); }
+    .sample-card { padding: 18px; }
+    .sample-card h3 { color: var(--navy); font-size: 18px; font-weight: 900; margin: 0 0 12px; }
+    .sample-card p { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
+    .sample-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border: 1px solid #e8eef5;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .sample-media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+    }
+    .report-img {
+      position: relative;
+      border: 1px solid #e8eef5;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .expert-comment {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+    .expert-comment img { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; }
+    .expert-comment p { margin: 0; color: #42536a; font-size: 14px; }
+
+    .check-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+    .num {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      background: #edf6ff;
+      color: var(--blue);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .steps { display: grid; gap: 14px; max-width: 840px; margin: 34px auto 0; }
+    .step {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 18px;
+      align-items: start;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px;
+    }
+    .step-num {
+      width: 62px;
+      height: 62px;
+      border-radius: 17px;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+    .step-num small { display: block; font-size: 10px; color: #cce4ff; }
+    .step h3 { color: var(--navy); margin: 0 0 4px; font-size: 17px; font-weight: 900; }
+    .step p { color: var(--muted); margin: 0; font-size: 14px; }
+
+    .result-card,
+    .feature { padding: 24px; }
+    .result-card {
+      position: relative;
+      min-height: 156px;
+      padding: 24px 22px 22px;
+      border-left: 4px solid var(--blue);
+      overflow: hidden;
+    }
+    .result-card::after {
+      content: attr(data-step);
+      position: absolute;
+      right: 16px;
+      bottom: -12px;
+      color: rgba(22, 110, 208, .08);
+      font-size: 58px;
+      line-height: 1;
+      font-weight: 900;
+    }
+    .result-card .result-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #eef7ff;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .result-card h3 {
+      position: relative;
+      z-index: 1;
+      color: var(--navy);
+      font-size: 17px;
+      line-height: 1.55;
+      font-weight: 900;
+      margin: 0;
+    }
+    .result-card p {
+      position: relative;
+      z-index: 1;
+      color: var(--muted);
+      font-size: 13.5px;
+      margin: 8px 0 0;
+    }
+    .target-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 34px;
+    }
+    .target-row {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      min-height: 210px;
+      padding: 22px 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 10px 28px rgba(15, 62, 109, .05);
+    }
+    .target-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eef7ff;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .target-row h3 {
+      color: var(--navy);
+      font-size: 17px;
+      line-height: 1.5;
+      font-weight: 900;
+      margin: 0;
+    }
+    .target-row p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .pricing-grid { display: grid; grid-template-columns: .9fr 1.12fr .9fr; gap: 20px; align-items: stretch; margin-top: 36px; }
+    .price-card { padding: 26px; position: relative; }
+    .price-card.recommended {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+      transform: translateY(-10px);
+      box-shadow: var(--shadow);
+    }
+    .ribbon {
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      background: var(--orange);
+      color: #fff;
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .price-card h3 { color: var(--navy); font-size: 20px; line-height: 1.45; margin: 0 0 10px; font-weight: 900; }
+    .price-card.recommended h3 { color: #fff; }
+    .price-card p { color: var(--muted); margin: 0 0 18px; font-size: 14px; }
+    .price-card.recommended p { color: #dcecff; }
+    .price { color: var(--blue); font-size: 34px; font-weight: 900; line-height: 1.1; margin: 12px 0 14px; }
+    .recommended .price { color: #fff; font-size: 45px; }
+    .price small { font-size: 14px; color: #42536a; }
+    .recommended .price small { color: #dcecff; }
+    .price-list { display: grid; gap: 8px; margin: 16px 0 22px; color: #42536a; font-size: 14px; font-weight: 700; }
+    .recommended .price-list { color: #eef7ff; }
+    .price-list span { color: var(--green); margin-right: 6px; }
+    .credit-note {
+      margin: 16px 0 18px;
+      padding: 14px 16px;
+      border: 1px solid #f7c879;
+      border-radius: 14px;
+      background: #fff8ed;
+      color: #6d4a12;
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+    .recommended .credit-note {
+      background: rgba(255, 255, 255, .12);
+      border-color: rgba(255, 255, 255, .34);
+      color: #fff7e8;
+    }
+    .credit-total {
+      margin: 14px 0 0;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: #eef7ff;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1.65;
+    }
+    .credit-total strong {
+      display: block;
+      color: var(--blue);
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    .plan-band {
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 26px;
+      align-items: center;
+      padding: 32px;
+      margin-top: 34px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .free-band {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 34px;
+    }
+    .free-card { padding: 24px; display: grid; gap: 12px; }
+    .free-card h3 { color: var(--navy); margin: 0; font-size: 18px; font-weight: 900; }
+    .free-card p { color: var(--muted); margin: 0; font-size: 14px; }
+
+    .faq { display: grid; gap: 12px; max-width: 860px; margin: 34px auto 0; }
+    details {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    summary {
+      cursor: pointer;
+      padding: 18px 20px;
+      color: var(--navy);
+      font-weight: 900;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      float: right;
+      color: var(--blue);
+      font-size: 20px;
+      line-height: 1;
+    }
+    details[open] summary::after { content: "-"; }
+    details p { color: #42536a; padding: 0 20px 18px; margin: 0; font-size: 14px; }
+
+    .final {
+      background:
+        linear-gradient(90deg, rgba(15, 62, 109, .94), rgba(22, 110, 208, .88)),
+        url("assets/report-sample.jpg") center/cover;
+      color: #fff;
+      padding: 78px 0;
+      text-align: center;
+    }
+    .final h2 { font-size: clamp(27px, 3.3vw, 40px); line-height: 1.45; margin: 0 0 18px; font-weight: 900; }
+    .final p { max-width: 760px; margin: 0 auto 28px; color: #eaf5ff; }
+    .business {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+    }
+    .business h2 { color: var(--navy); font-size: 22px; font-weight: 900; margin: 0 0 6px; }
+    .business p { color: var(--muted); margin: 0; font-size: 14px; }
+    footer { background: #11243c; color: #bdd0e5; padding: 30px 0 96px; font-size: 13px; }
+    footer strong { color: #fff; font-size: 15px; display: block; margin-bottom: 4px; }
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
+      background: #fff;
+      border-top: 1px solid var(--line);
+      box-shadow: 0 -10px 28px rgba(15, 62, 109, .14);
+      padding: 10px 14px;
+      gap: 10px;
+    }
+
+    @media (max-width: 980px) {
+      .nav { display: none; }
+      .hamburger { display: inline-flex; }
+      .hero-grid,
+      .about,
+      .diagnosis,
+      .sample-grid,
+      .plan-band,
+      .free-band,
+      .business { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .price-card.recommended { transform: none; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .target-list { grid-template-columns: repeat(2, 1fr); }
+      .visual { min-height: 500px; }
+    }
+
+    @media (max-width: 720px) {
+      body { padding-bottom: 76px; }
+      .wrap { width: min(100% - 30px, 1120px); }
+      .header-inner { height: 58px; }
+      .brand-mark { width: 30px; height: 30px; border-radius: 9px; }
+      .brand-text { font-size: 14px; }
+      .hamburger { width: 40px; height: 40px; border-radius: 11px; }
+      .mobile-nav { padding: 10px 15px 14px; }
+      .mobile-nav a { padding: 11px 12px; font-size: 13.5px; }
+      .hero { padding: 34px 0 40px; }
+      .hero::before {
+        display: block;
+        top: 58px;
+        right: -90px;
+        width: 315px;
+        height: 235px;
+        border-radius: 28px;
+        opacity: .5;
+        box-shadow: 0 16px 34px rgba(15, 62, 109, .12);
+      }
+      .hero h1 { font-size: 22px; line-height: 1.12; margin-top: 18px; }
+      .hero h1 .line { white-space: nowrap; }
+      .hero h1 .line-tight { font-size: .74em; }
+      .hero-copy { font-size: 14.5px; }
+      .hero-actions { margin-top: 22px; }
+      .hero-actions .btn { width: 100%; min-height: 46px; padding: 13px 18px; }
+      .visual { min-height: 390px; }
+      .hero-photo img { height: 255px; }
+      .hero-price { bottom: 30px; padding: 18px; }
+      .grid-2,
+      .grid-3,
+      .grid-4 { grid-template-columns: 1fr; }
+      .worry-layout { grid-template-columns: 1fr; gap: 18px; }
+      .worry-body { padding: 20px; }
+      .worry-body h3 { font-size: 19px; }
+      .target-list { grid-template-columns: 1fr; gap: 12px; }
+      .target-row { min-height: auto; padding: 18px; }
+      .target-label { justify-content: flex-start; width: fit-content; }
+      .sample-value-grid { grid-template-columns: 1fr; }
+      .section { padding: 56px 0; }
+      .message-box { padding: 20px; }
+      .expert-comment { grid-template-columns: 1fr; text-align: center; }
+      .expert-comment img { margin: 0 auto; }
+      .step { grid-template-columns: 54px 1fr; gap: 12px; padding: 16px; }
+      .step-num { width: 50px; height: 50px; border-radius: 14px; }
+      .business { text-align: center; }
+      .mobile-cta { display: flex; }
+      .mobile-cta .btn { flex: 1; padding: 12px 10px; min-height: 46px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="ノーティス安全運転塾">
+        <span class="brand-mark">N</span>
+        <span class="brand-text">ノーティス安全運転塾</span>
+      </a>
+      <nav class="nav" aria-label="ページ内ナビゲーション">
+        <a href="#worries">お悩み</a>
+        <a href="#diagnosis">診断内容</a>
+        <a href="#sample">レポート例</a>
+        <a href="#flow">診断の流れ</a>
+        <a href="#price">料金</a>
+        <a href="#faq">よくある質問</a>
+        <a class="nav-cta" href="#apply">診断に申し込む</a>
+      </nav>
+      <button class="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav id="mobileNav" class="mobile-nav" aria-label="スマホ用ナビゲーション">
+      <div class="mobile-nav-inner">
+        <a href="#worries">お悩み</a>
+        <a href="#diagnosis">診断内容</a>
+        <a href="#sample">レポート例</a>
+        <a href="#flow">診断の流れ</a>
+        <a href="#price">料金</a>
+        <a href="#faq">よくある質問</a>
+        <a class="nav-cta" href="#apply">診断に申し込む</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="badge">家族で確認できる、運転の健康診断</div>
+          <h1><span class="line">あなたの<span class="accent">運転映像</span>から</span><span class="line">事故リスクを専門家が診断</span></h1>
+          <p class="hero-copy">安全運転パーソナル診断は、実際の運転映像をもとに、運転の癖や安全確認の不足、事故につながりやすい行動を専門家が確認する個人向け診断サービスです。</p>
+          <p class="hero-copy">本人も家族も気づきにくい運転の実態を映像とレポートで確認し、これからも安全に運転を続けるための改善ポイントをお伝えします。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#apply">安全運転パーソナル診断に申し込む</a>
+            <a class="btn btn-secondary" href="#sample">診断サンプルを見る</a>
+          </div>
+        </div>
+        <div class="visual" aria-label="診断サービスのイメージ">
+          <div class="hero-photo">
+            <img src="assets/hero-driver.png" alt="運転中のドライバーと車のイメージ">
+          </div>
+          <div class="hero-price">
+            <div class="label">安全運転パーソナル診断</div>
+            <div class="name">安全運転パーソナル診断</div>
+            <div class="price">19,800<small>円（税込）</small></div>
+            <div class="price-list">
+              <div><span>✓</span>実際の運転映像をもとに専門家が確認</div>
+              <div><span>✓</span>診断結果をレポートまたは動画で共有</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="worries" class="section">
+      <div class="wrap">
+        <p class="eyebrow">WORRIES</p>
+        <h2 class="title">こんな不安はありませんか？</h2>
+        <div class="worry-layout">
+          <div class="worry-panel">
+            <div class="worry-photo">
+              <img src="assets/worry-beginner.jpg" alt="運転に不安を感じる本人のイメージ">
+              <div class="worry-label">ご本人の不安</div>
+            </div>
+            <div class="worry-body">
+              <h3>自分の運転を、一度客観的に確認したい</h3>
+              <ul class="worry-list">
+                <li>最近、車線変更や右左折でヒヤッとすることが増えた</li>
+                <li>自分の運転の癖を一度プロに見てもらいたい</li>
+                <li>これからも安全に運転を続けたい</li>
+                <li>事故やヒヤリハットをきっかけに運転を見直したい</li>
+              </ul>
+            </div>
+          </div>
+          <div class="worry-panel">
+            <div class="worry-photo">
+              <img src="assets/worry-driver.jpg" alt="家族が運転を心配するドライバーのイメージ">
+              <div class="worry-label">ご家族の不安</div>
+            </div>
+            <div class="worry-body">
+              <h3>家族として、感覚ではなく映像で確認したい</h3>
+              <ul class="worry-list">
+                <li>親の運転が少し心配になってきた</li>
+                <li>本人は「大丈夫」と言うが、家族としては不安がある</li>
+                <li>感覚ではなく、客観的な材料をもとに話し合いたい</li>
+                <li>免許返納を迫る前に、まず運転状態を確認したい</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="message-box">運転に関する話は、本人にとっても家族にとってもデリケートです。だからこそ、感覚や不安だけで判断するのではなく、実際の運転映像をもとに、冷静に確認できる材料を持つことが大切です。</div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap about">
+        <div class="about-photo">
+          <img src="assets/expert-review.png" alt="運転映像を専門家が確認するイメージ">
+        </div>
+        <div class="about-text">
+          <p class="eyebrow" style="text-align: left;">ABOUT</p>
+          <h2>ノーティス安全運転塾とは</h2>
+          <p>ノーティス安全運転塾は、プロドライバー向けの安全運転教育で培ったノウハウをもとに、一般ドライバー向けに運転の癖や事故リスクを見直すためのプログラムです。</p>
+          <p>単に「気をつけましょう」と伝えるのではなく、実際の運転映像をもとに、自分では気づきにくい確認不足や危険につながる運転の癖を確認します。</p>
+          <p>自分の運転の実態に気づき、安全をつくる運転を身につけることで、事故から遠ざかる運転習慣をつくることを目指します。</p>
+          <div class="philosophy">大切にしているのは、事故を怖がらせることではありません。自分の運転の実態に気づき、<strong>安全をつくる運転</strong>を身につけることです。</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diagnosis" class="section">
+      <div class="wrap diagnosis">
+        <div class="diagnosis-text">
+          <p class="eyebrow" style="text-align: left;">PERSONAL DIAGNOSIS</p>
+          <h2>まずは1回、<br>運転の健康診断から。</h2>
+          <p>安全運転パーソナル診断は、実際の運転映像をもとに、運転の癖や安全確認の不足を専門家が確認する初回診断プランです。</p>
+          <p>AI診断だけで終わらせるのではなく、専門家の視点で映像を確認し、どのような運転行動にリスクがあるのか、今後どこを改善すべきかを分かりやすくお伝えします。</p>
+          <p>ノーティスが目指すのは、運転を採点することではありません。自分では気づきにくい癖や確認不足に気づき、事故から遠ざかる運転を身につけるきっかけをつくることです。</p>
+        </div>
+        <div class="diagnosis-panel">
+          <div class="label" style="color: var(--muted); font-weight: 900;">提供内容</div>
+          <div class="price">19,800<small>円（税込）</small></div>
+          <div class="included">
+            <div><span>✓</span>実際の運転映像の確認</div>
+            <div><span>✓</span>AI診断または映像分析</div>
+            <div><span>✓</span>専門家による確認</div>
+            <div><span>✓</span>運転の癖・リスク項目の整理</div>
+            <div><span>✓</span>簡易レポートまたはコメント動画</div>
+            <div><span>✓</span>今後の改善ポイントの提示</div>
+            <div><span>✓</span>必要な方への6ヶ月伴走プラン案内</div>
+          </div>
+          <a class="btn btn-primary" style="margin-top: 22px; width: 100%;" href="#apply">安全運転パーソナル診断に申し込む</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sample" class="section section-soft">
+      <div class="wrap">
+        <p class="eyebrow">SAMPLE</p>
+        <h2 class="title">診断結果で、改善すべき運転行動が分かります</h2>
+        <p class="lead">安全運転パーソナル診断では、実際の運転映像をもとに、一時停止、右左折、車間距離、安全確認などの項目を確認します。診断結果は、レポートまたは専門家コメントで共有し、家族でも話し合いやすい形で整理します。</p>
+        <div class="sample-grid sample-value-grid">
+          <div class="card sample-card">
+            <h3>診断レポート</h3>
+            <div class="sample-media"><img src="assets/report-sample.jpg" alt="診断レポートのサンプル"></div>
+            <p>レーダーチャートやチェック項目で、運転の癖や確認不足を整理します。</p>
+          </div>
+          <div class="card sample-card">
+            <h3>映像確認</h3>
+            <div class="sample-media"><img src="assets/notice-40.png" alt="運転映像の確認画面の例"></div>
+            <p>実際の運転映像をもとに、「できているつもり」と実際の運転のギャップを確認します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">CHECK POINT</p>
+        <h2 class="title">運転のどこを確認するのか</h2>
+        <p class="lead">本人は安全に運転しているつもりでも、映像で確認すると、確認不足や危険に近づきやすい癖が見つかることがあります。</p>
+        <div class="grid-4" style="margin-top: 34px;">
+          <div class="check-card"><span class="num">01</span>一時停止</div>
+          <div class="check-card"><span class="num">02</span>右左折時の安全確認</div>
+          <div class="check-card"><span class="num">03</span>車間距離</div>
+          <div class="check-card"><span class="num">04</span>交差点での確認</div>
+          <div class="check-card"><span class="num">05</span>歩行者・自転車への意識</div>
+          <div class="check-card"><span class="num">06</span>車線変更</div>
+          <div class="check-card"><span class="num">07</span>駐車・バック時の確認</div>
+          <div class="check-card"><span class="num">08</span>速度感覚</div>
+          <div class="check-card"><span class="num">09</span>周囲を見る時間</div>
+          <div class="check-card"><span class="num">10</span>事故につながる運転の癖</div>
+        </div>
+        <div class="message-box">診断の目的は運転を否定することではありません。これからも安全に運転を続けるために、改善できるポイントを見つけることです。</div>
+      </div>
+    </section>
+
+    <section id="flow" class="section section-soft">
+      <div class="wrap">
+        <p class="eyebrow">FLOW</p>
+        <h2 class="title">診断の流れ</h2>
+        <div class="steps">
+          <div class="step"><div class="step-num"><small>STEP</small>1</div><div><h3>お申し込み</h3><p>フォームまたはLINEからお申し込みいただきます。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>2</div><div><h3>運転映像の準備</h3><p>指定の方法で、運転映像をご用意いただきます。ドライブレコーダー映像がある場合は、その映像を活用します。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>3</div><div><h3>映像診断</h3><p>運転映像をもとに、運転の癖や安全確認の不足を確認します。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>4</div><div><h3>診断結果の共有</h3><p>簡易レポートまたはコメント動画で、診断結果と改善ポイントをお伝えします。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>5</div><div><h3>必要に応じて継続サポート</h3><p>希望される方には、6ヶ月伴走プランをご案内します。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="eyebrow">AFTER DIAGNOSIS</p>
+        <h2 class="title">診断後に分かること</h2>
+        <div class="grid-3" style="margin-top: 34px;">
+          <div class="card result-card" data-step="01"><div class="result-kicker">運転の癖</div><h3>自分では気づきにくい運転の癖</h3><p>普段の運転で繰り返し出やすい癖を映像で確認します。</p></div>
+          <div class="card result-card" data-step="02"><div class="result-kicker">確認不足</div><h3>危険につながりやすい確認不足</h3><p>一時停止、右左折、車間距離などの不足を整理します。</p></div>
+          <div class="card result-card" data-step="03"><div class="result-kicker">家族共有</div><h3>家族が不安に感じているポイント</h3><p>感覚ではなく、映像とレポートをもとに話し合えます。</p></div>
+          <div class="card result-card" data-step="04"><div class="result-kicker">改善行動</div><h3>事故予防のために改善すべき行動</h3><p>明日から意識しやすい運転行動として具体化します。</p></div>
+          <div class="card result-card" data-step="05"><div class="result-kicker">継続課題</div><h3>これからも安全に運転するための課題</h3><p>安全をつくる運転を続けるための課題が分かります。</p></div>
+          <div class="card result-card" data-step="06"><div class="result-kicker">次の判断</div><h3>6ヶ月伴走プランが必要かどうか</h3><p>診断結果を見て、必要な方だけ継続サポートを検討できます。</p></div>
+        </div>
+        <div class="message-box">診断結果は、本人を責めるためではなく、より安全に運転を続けるための材料として活用します。</div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <p class="eyebrow">FOR YOU</p>
+        <h2 class="title">このような方におすすめです</h2>
+        <div class="target-list">
+          <div class="target-row"><div class="target-label">ご家族</div><h3>高齢の親の運転が心配なご家族</h3><p>親本人にいきなり免許返納を迫るのではなく、まずは運転状態を客観的に確認したい方。</p></div>
+          <div class="target-row"><div class="target-label">ご本人</div><h3>最近、運転に不安を感じるご本人</h3><p>車線変更、右左折、一時停止、駐車など、自分の運転を一度見直したい方。</p></div>
+          <div class="target-row"><div class="target-label">日常運転</div><h3>仕事や日常で車を使い続けたい方</h3><p>これからも安全に運転を続けるために、専門家の視点で確認したい方。</p></div>
+          <div class="target-row"><div class="target-label">家族共有</div><h3>家族から指摘され、一度確認したい方</h3><p>感情的な話し合いではなく、映像をもとに冷静に確認したい方。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price" class="section">
+      <div class="wrap">
+        <p class="eyebrow">PRICE</p>
+        <h2 class="title">料金プラン</h2>
+        <p class="lead">いきなり6ヶ月契約ではなく、まずは1回の安全運転パーソナル診断から始められます。</p>
+        <div class="pricing-grid">
+          <div class="card price-card">
+            <h3>無料説明動画 / 無料オンライン診断セミナー</h3>
+            <div class="price">0<small>円</small></div>
+            <p>診断の考え方、映像診断で確認するポイント、サービス内容を説明します。</p>
+            <div class="price-list"><div><span>✓</span>申し込み前の不安を下げる</div><div><span>✓</span>映像診断の価値を確認</div></div>
+            <a class="btn btn-secondary" href="#free">無料コンテンツを見る</a>
+          </div>
+          <div class="card price-card recommended">
+            <div class="ribbon">おすすめ</div>
+            <h3>安全運転パーソナル診断</h3>
+            <div class="price">19,800<small>円（税込）</small></div>
+            <p>運転映像診断、専門家確認、簡易レポートまたはコメント動画。まず1回、客観的に運転状態を確認できます。</p>
+            <div class="price-list"><div><span>✓</span>運転映像診断</div><div><span>✓</span>専門家確認</div><div><span>✓</span>簡易レポートまたはコメント動画</div></div>
+            <div class="credit-note">診断後に6ヶ月伴走プランへ進む場合、診断料19,800円（税込）をプラン料金に充当できます。</div>
+            <a class="btn btn-primary" href="#apply">安全運転パーソナル診断に申し込む</a>
+          </div>
+          <div class="card price-card">
+            <h3>6ヶ月伴走プラン</h3>
+            <div class="price">99,000<small>円（税込）</small></div>
+            <p>診断後、継続的に安全運転を身につけたい方向けの上位プランです。</p>
+            <div class="price-list"><div><span>✓</span>動画学習</div><div><span>✓</span>継続サポート</div><div><span>✓</span>改善確認</div></div>
+            <div class="credit-note">安全運転パーソナル診断を受けた方は、診断料19,800円（税込）をプラン料金に充当できます。</div>
+            <div class="credit-total">診断料充当後の追加費用：<strong>79,200円（税込）</strong></div>
+            <div class="notice" style="margin: 14px 0 0;">希望者のみ。まずは診断のみでもご利用いただけます。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <p class="eyebrow">6 MONTH SUPPORT</p>
+        <h2 class="title">必要な方には、6ヶ月伴走プランもご用意しています</h2>
+        <div class="plan-band">
+          <div>
+            <p style="margin: 0 0 14px; color: #42536a;">安全運転パーソナル診断を受けた方が、診断後に6ヶ月伴走プランへ進まれる場合、診断料19,800円（税込）をプラン料金に充当します。</p>
+            <p style="margin: 0 0 14px; color: #42536a;">まずは1回の診断だけでもご利用いただけます。診断結果を確認したうえで、継続的に運転を見直したい方のみ6ヶ月伴走プランをご検討ください。</p>
+            <p style="margin: 0; color: #42536a;">動画学習や診断結果に基づいた改善サポートを通じて、安全をつくる運転を日々の運転に定着させていきます。</p>
+          </div>
+          <div>
+            <div class="price">99,000<small>円（税込）</small></div>
+            <div class="credit-total">診断後の追加費用：<strong>79,200円（税込）</strong></div>
+            <div class="notice">6ヶ月伴走プランは任意です。まずは安全運転パーソナル診断のみでもご利用いただけます。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="free" class="section">
+      <div class="wrap">
+        <p class="eyebrow">FREE CONTENTS</p>
+        <h2 class="title">まずは無料で、診断の考え方を知る</h2>
+        <p class="lead">いきなり診断を申し込むのが不安な方には、無料説明動画または無料オンライン診断セミナーをご用意します。</p>
+        <div class="free-band">
+          <div class="card free-card">
+            <h3>無料説明動画</h3>
+            <p>実際にどのような視点で運転映像を見るのか、どのような運転行動が事故リスクにつながるのかを、分かりやすく解説します。</p>
+          </div>
+          <div class="card free-card">
+            <h3>無料オンライン診断セミナー</h3>
+            <p>映像診断の価値を体感し、申し込み前の不安を下げるためのオンラインセミナーです。</p>
+            <a class="btn btn-secondary" href="#apply">無料オンライン診断セミナーを見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section-soft">
+      <div class="wrap">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="title">よくある質問</h2>
+        <div class="faq">
+          <details open><summary>親本人ではなく、家族が申し込んでもよいですか？</summary><p>はい。ご家族からのご相談も可能です。ただし、運転映像の提供や診断結果の共有については、ご本人の同意を得たうえで進めることを推奨します。</p></details>
+          <details><summary>免許返納を勧めるサービスですか？</summary><p>いいえ。免許返納を強制するサービスではありません。現在の運転状態を客観的に確認し、これからも安全に運転を続けるための材料を提供するサービスです。</p></details>
+          <details><summary>ドライブレコーダーがない場合でも利用できますか？</summary><p>利用方法を相談できます。ドライブレコーダー映像がある場合はスムーズですが、映像の用意方法については個別にご案内します。</p></details>
+          <details><summary>診断だけでも申し込めますか？</summary><p>はい。安全運転パーソナル診断のみのお申し込みも可能です。6ヶ月伴走プランは希望者のみの上位プランです。</p></details>
+          <details><summary>診断結果は家族で見られますか？</summary><p>はい。家族で確認しやすい形式で共有できるようにします。親本人を責めるためではなく、今後の安全運転を話し合う材料としてご活用ください。</p></details>
+          <details><summary>どのような映像を用意すればよいですか？</summary><p>普段の運転が分かるドライブレコーダー映像をご用意ください。具体的な映像の長さや提出方法については、お申し込み後にご案内します。</p></details>
+          <details><summary>診断後に6ヶ月伴走プランへ進む場合、診断料はどうなりますか？</summary><p>安全運転パーソナル診断を受けた方が6ヶ月伴走プランへ進まれる場合、診断料19,800円（税込）をプラン料金に充当します。6ヶ月伴走プランは99,000円（税込）のため、診断後の追加費用は79,200円（税込）です。なお、6ヶ月伴走プランは任意のため、まずは診断のみでもご利用いただけます。</p></details>
+          <details><summary>診断結果を見て、必ず6ヶ月プランに入る必要はありますか？</summary><p>いいえ。6ヶ月伴走プランは希望者のみです。まずは安全運転パーソナル診断のみでもご利用いただけます。診断結果を確認したうえで、継続的に運転を見直したい方にのみご案内します。</p></details>
+          <details><summary>家族に知られずに本人だけで申し込めますか？</summary><p>はい。ご本人だけでもお申し込みいただけます。診断結果を家族と共有するかどうかは、ご本人の判断に合わせてご相談いただけます。</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="apply" class="final">
+      <div class="wrap">
+        <h2>自分では気づきにくい運転の癖を、<br>映像で確認してみませんか？</h2>
+        <p>安全運転パーソナル診断は、実際の運転映像をもとに、本人も家族も気づきにくい運転の癖や安全確認の不足を確認する個人向け診断サービスです。まずは1回の診断から、これからも安全に運転を続けるための改善ポイントを確認しませんか？</p>
+        <p>診断後に6ヶ月伴走プランへ進む場合は、診断料19,800円（税込）をプラン料金に充当できます。まずは1回の診断からご利用いただけます。</p>
+        <div class="hero-actions" style="justify-content: center;">
+          <a class="btn btn-primary" href="#price">安全運転パーソナル診断に申し込む</a>
+          <a class="btn btn-secondary" href="#sample">診断サンプルを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="card business">
+          <div>
+            <h2>企業・団体で安全運転教育を検討中の方へ</h2>
+            <p>業務で車両を使用する企業・団体向けには、ドライブレコーダー映像を活用した法人向け安全運転教育・事故予防プログラムをご用意しています。</p>
+          </div>
+          <a class="btn btn-dark" href="https://free-media.github.io/notice-business-lp/">法人向け安全運転教育を見る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>ノーティス安全運転塾</strong>
+      株式会社ノーティス｜家族で確認できる、運転の健康診断
+    </div>
+  </footer>
+
+  <div class="mobile-cta">
+    <a class="btn btn-secondary" href="#sample">レポート例</a>
+    <a class="btn btn-primary" href="#apply">診断に申し込む</a>
+  </div>
+  <script>
+    (() => {
+      const header = document.querySelector('.header');
+      const button = document.querySelector('.hamburger');
+      const mobileNav = document.querySelector('#mobileNav');
+      if (!header || !button || !mobileNav) return;
+
+      const setOpen = (open) => {
+        header.classList.toggle('menu-open', open);
+        button.setAttribute('aria-expanded', String(open));
+        button.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      };
+
+      button.addEventListener('click', () => {
+        setOpen(!header.classList.contains('menu-open'));
+      });
+
+      mobileNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
+</body>
+</html>
