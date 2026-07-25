@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ノーティス安全運転塾｜安全運転パーソナル診断</title>
-  <meta name="description" content="あなたの運転映像から、事故リスクを専門家が診断。安全運転パーソナル診断は、映像とレポートで改善ポイントを確認する個人向け診断サービスです。">
+  <meta name="description" content="運転にも、健康診断を。ノーティス安全運転塾は、専用ドライブレコーダーで撮影した運転映像をもとに、運転の癖や事故につながるリスクを確認する個人向けサービスです。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -38,6 +38,8 @@
     a { color: inherit; }
     .wrap { width: min(1120px, calc(100% - 44px)); margin: 0 auto; }
     .section { padding: 76px 0; }
+    /* 固定ヘッダー分だけアンカー位置をずらす */
+    section[id] { scroll-margin-top: 84px; }
     .section-soft { background: var(--pale); }
     .eyebrow {
       color: var(--blue);
@@ -57,7 +59,7 @@
     }
     .lead {
       color: var(--muted);
-      font-size: 15.5px;
+      font-size: clamp(14.5px, .5vw + 12.8px, 15.5px);
       text-align: center;
       max-width: 780px;
       margin: 16px auto 0;
@@ -91,6 +93,7 @@
     .btn-secondary { background: #fff; color: var(--blue); border: 1.5px solid #b8d6f4; }
     .btn-dark { background: var(--navy); color: #fff; }
     .btn-line { background: #06c755; color: #fff; }
+    .btn-line:hover { background: #05b94f; }
     .header {
       position: sticky;
       top: 0;
@@ -121,7 +124,19 @@
     .brand-text { color: var(--navy); font-weight: 900; font-size: 17px; letter-spacing: .02em; }
     .nav { display: flex; align-items: center; gap: 18px; font-size: 13px; font-weight: 700; color: #3d5066; }
     .nav a { text-decoration: none; }
-    .nav .nav-cta { padding: 10px 16px; background: var(--orange); color: #fff; border-radius: 999px; }
+    .nav .nav-cta { padding: 10px 16px; background: #06c755; color: #fff; border-radius: 999px; }
+    .audience-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #eef7ff;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
     .hamburger {
       display: none;
       width: 42px;
@@ -173,8 +188,8 @@
       font-weight: 900;
     }
     .mobile-nav .nav-cta {
-      background: var(--orange);
-      border-color: var(--orange);
+      background: #06c755;
+      border-color: #06c755;
       color: #fff;
       text-align: center;
     }
@@ -236,6 +251,22 @@
     .hero h1 .line-tight { font-size: .82em; }
     .hero h1 .accent { color: var(--blue); }
     .hero-copy { color: #3d5066; font-size: 16px; max-width: 640px; margin: 0 0 14px; }
+    .line-benefits {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 650px;
+      margin: 20px 0 0;
+    }
+    .line-benefits div {
+      padding: 10px 12px;
+      border: 1px solid #d6efdd;
+      border-radius: 12px;
+      background: #f4fff7;
+      color: #245b36;
+      font-size: 13px;
+      font-weight: 900;
+    }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 0; }
     .point {
       background: #fff;
@@ -457,12 +488,66 @@
       font-weight: 700;
       margin-top: 18px;
     }
+    .line-note {
+      margin-top: 12px;
+      color: #557066;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .line-panel {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 26px;
+      align-items: center;
+      margin-top: 34px;
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid #bfe8cb;
+      background: linear-gradient(135deg, #f4fff7, #fff);
+      box-shadow: var(--shadow);
+    }
+    .line-panel h3 {
+      color: #075f2a;
+      font-size: clamp(22px, 2.5vw, 30px);
+      line-height: 1.45;
+      margin: 0 0 12px;
+      font-weight: 900;
+    }
+    .line-panel p { color: #335445; margin: 0 0 16px; }
+    .line-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .line-list li {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #fff;
+      color: #245b36;
+      font-size: 14px;
+      font-weight: 900;
+      border: 1px solid #d6efdd;
+    }
 
     .sample-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 24px; margin-top: 34px; }
     .sample-value-grid { grid-template-columns: repeat(2, 1fr); }
     .sample-card { padding: 18px; }
     .sample-card h3 { color: var(--navy); font-size: 18px; font-weight: 900; margin: 0 0 12px; }
     .sample-card p { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
+    .video-placeholder {
+      min-height: 210px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      border: 1.5px dashed #b8d6f4;
+      border-radius: 16px;
+      background: #f7fbff;
+      color: var(--navy);
+      font-weight: 900;
+    }
     .sample-media {
       position: relative;
       aspect-ratio: 16 / 9;
@@ -671,6 +756,39 @@
     .price-list { display: grid; gap: 8px; margin: 16px 0 22px; color: #42536a; font-size: 14px; font-weight: 700; }
     .recommended .price-list { color: #eef7ff; }
     .price-list span { color: var(--green); margin-right: 6px; }
+    .plan-tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      min-height: 28px;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: #eef7ff;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .recommended .plan-tag {
+      background: rgba(255, 255, 255, .16);
+      color: #fff;
+    }
+    .price-meta {
+      display: grid;
+      gap: 8px;
+      margin: 16px 0;
+      color: #42536a;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+    .recommended .price-meta { color: #eef7ff; }
+    .pending-price {
+      color: var(--navy);
+      font-size: 25px;
+      font-weight: 900;
+      margin: 12px 0 14px;
+    }
+    .recommended .pending-price { color: #fff; }
     .credit-note {
       margin: 16px 0 18px;
       padding: 14px 16px;
@@ -735,16 +853,21 @@
       overflow: hidden;
     }
     summary {
+      position: relative;
       cursor: pointer;
-      padding: 18px 20px;
+      padding: 18px 48px 18px 20px;
       color: var(--navy);
       font-weight: 900;
+      line-height: 1.6;
       list-style: none;
     }
     summary::-webkit-details-marker { display: none; }
     summary::after {
       content: "+";
-      float: right;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
       color: var(--blue);
       font-size: 20px;
       line-height: 1;
@@ -787,71 +910,201 @@
       gap: 10px;
     }
 
+    /* =========================================================
+       レスポンシブ
+       1180 / 1024 : デスクトップ〜タブレット横
+       980  / 860  : タブレット縦
+       720  / 400  : スマートフォン
+       ========================================================= */
+
+    /* --- 小さめデスクトップ・タブレット横 --- */
+    @media (max-width: 1180px) {
+      .wrap { width: min(1120px, calc(100% - 40px)); }
+      .section { padding: 68px 0; }
+      .hero-grid { gap: 32px; }
+      .pricing-grid { gap: 16px; }
+      .price-card { padding: 22px; }
+      .plan-band { padding: 28px; }
+    }
+
+    @media (max-width: 1024px) {
+      .nav { gap: 13px; font-size: 12.5px; }
+      .nav .nav-cta { padding: 9px 13px; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .target-list { grid-template-columns: repeat(2, 1fr); }
+      .visual { min-height: 470px; }
+      .hero-photo img { height: 320px; }
+      .hero-price { padding: 20px; }
+      .hero-price .price { font-size: 36px; }
+      .expert-comment { grid-template-columns: 78px 1fr; }
+      .expert-comment img { width: 78px; height: 78px; }
+    }
+
+    /* --- タブレット縦：1カラムへ --- */
     @media (max-width: 980px) {
       .nav { display: none; }
       .hamburger { display: inline-flex; }
+      .section { padding: 62px 0; }
+      .hero { padding: 48px 0 52px; }
+
       .hero-grid,
       .about,
       .diagnosis,
       .sample-grid,
       .plan-band,
+      .line-panel,
       .free-band,
       .business { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
       .price-card.recommended { transform: none; }
-      .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .target-list { grid-template-columns: repeat(2, 1fr); }
-      .visual { min-height: 500px; }
+
+      /* 1カラム時は中央寄せの読みやすい幅に収める
+         （width:100% がないと grid item が auto margin で縮む） */
+      .pricing-grid,
+      .free-band,
+      .line-panel,
+      .about-photo,
+      .diagnosis-panel,
+      .plan-band > *,
+      .visual { width: 100%; max-width: 640px; margin-inline: auto; }
+
+      .hero-copy { max-width: 100%; }
+      .hero h1 { font-size: clamp(28px, 4.6vw, 40px); }
+
+      /* 絶対配置をやめて重なり崩れを防ぐ */
+      .visual { position: static; min-height: 0; }
+      .hero-photo { position: static; width: 100%; }
+      .hero-photo img { height: clamp(240px, 40vw, 330px); }
+      .hero-price {
+        position: relative;
+        z-index: 2;
+        inset: auto;
+        width: min(92%, 520px);
+        margin: -44px auto 0;
+      }
+
+      .business { text-align: center; justify-items: center; }
+      .plan-band { justify-items: center; text-align: center; }
     }
 
+    /* --- 小さめタブレット --- */
+    @media (max-width: 860px) {
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .worry-layout { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
+      .sample-value-grid { grid-template-columns: 1fr; }
+      .target-list { max-width: 640px; margin-inline: auto; }
+      .message-box { padding: 22px 24px; }
+    }
+
+    /* --- スマートフォン --- */
     @media (max-width: 720px) {
-      body { padding-bottom: 76px; }
-      .wrap { width: min(100% - 30px, 1120px); }
-      .header-inner { height: 58px; }
-      .brand-mark { width: 30px; height: 30px; border-radius: 9px; }
+      /* 下部固定CTAぶんはフッターの余白で確保する（白い帯を出さない） */
+      body { padding-bottom: 0; }
+      .wrap { width: min(100% - 32px, 1120px); }
+      .section { padding: 48px 0; }
+      section[id] { scroll-margin-top: 64px; }
+
+      .title { font-size: clamp(21px, 5.7vw, 27px); line-height: 1.5; }
+      .eyebrow { font-size: 12px; letter-spacing: .06em; }
+      .lead { margin-top: 12px; }
+      .btn { font-size: 14.5px; white-space: normal; text-align: center; }
+
+      .header-inner { height: 56px; }
+      .brand-mark { width: 30px; height: 30px; border-radius: 9px; font-size: 14px; }
       .brand-text { font-size: 14px; }
       .hamburger { width: 40px; height: 40px; border-radius: 11px; }
       .mobile-nav { padding: 10px 15px 14px; }
-      .mobile-nav a { padding: 11px 12px; font-size: 13.5px; }
-      .hero { padding: 34px 0 40px; }
-      .hero::before {
-        display: block;
-        top: 58px;
-        right: -90px;
-        width: 315px;
-        height: 235px;
-        border-radius: 28px;
-        opacity: .5;
-        box-shadow: 0 16px 34px rgba(15, 62, 109, .12);
-      }
-      .hero h1 { font-size: 22px; line-height: 1.12; margin-top: 18px; }
-      .hero h1 .line { white-space: nowrap; }
-      .hero h1 .line-tight { font-size: .74em; }
-      .hero-copy { font-size: 14.5px; }
-      .hero-actions { margin-top: 22px; }
-      .hero-actions .btn { width: 100%; min-height: 46px; padding: 13px 18px; }
-      .visual { min-height: 390px; }
-      .hero-photo img { height: 255px; }
-      .hero-price { bottom: 30px; padding: 18px; }
+      .mobile-nav a { padding: 12px; font-size: 13.5px; }
+
+      .hero { padding: 30px 0 40px; }
+      /* 背景写真は本文の可読性を下げるため非表示（下に実写真あり） */
+      .hero::before { display: none; }
+      .badge { font-size: 12px; padding: 7px 13px; }
+      .hero h1 { font-size: clamp(20px, 5.9vw, 26px); line-height: 1.38; margin: 16px 0 14px; }
+      .hero-copy { font-size: 14.5px; line-height: 1.85; }
+      .hero-actions { gap: 10px; margin-top: 22px; }
+      .hero-actions .btn { width: 100%; min-height: 48px; padding: 13px 16px; }
+      .line-benefits { grid-template-columns: 1fr; }
+      .line-panel { padding: 22px 18px; text-align: left; }
+      .line-list li { font-size: 13.5px; }
+      .hero-photo img { height: clamp(205px, 58vw, 260px); }
+      .hero-price { width: min(94%, 460px); margin-top: -36px; padding: 18px; }
+      .hero-price .name { font-size: 18px; }
+      .hero-price .price { font-size: 32px; }
+      .hero-price .price small { font-size: 13.5px; }
+
       .grid-2,
       .grid-3,
-      .grid-4 { grid-template-columns: 1fr; }
-      .worry-layout { grid-template-columns: 1fr; gap: 18px; }
+      .grid-4 { grid-template-columns: 1fr; gap: 14px; }
+      .worry-layout { gap: 18px; }
       .worry-body { padding: 20px; }
-      .worry-body h3 { font-size: 19px; }
+      .worry-body h3 { font-size: 18.5px; }
+      .worry-list li { font-size: 14px; }
+      .problem-card { min-height: auto; padding: 20px; }
+      .result-card { min-height: auto; padding: 20px 18px; }
+      .result-card::after { font-size: 46px; right: 12px; }
       .target-list { grid-template-columns: 1fr; gap: 12px; }
       .target-row { min-height: auto; padding: 18px; }
       .target-label { justify-content: flex-start; width: fit-content; }
-      .sample-value-grid { grid-template-columns: 1fr; }
-      .section { padding: 56px 0; }
+      .sample-card { padding: 16px; }
       .message-box { padding: 20px; }
-      .expert-comment { grid-template-columns: 1fr; text-align: center; }
-      .expert-comment img { margin: 0 auto; }
-      .step { grid-template-columns: 54px 1fr; gap: 12px; padding: 16px; }
-      .step-num { width: 50px; height: 50px; border-radius: 14px; }
-      .business { text-align: center; }
-      .mobile-cta { display: flex; }
-      .mobile-cta .btn { flex: 1; padding: 12px 10px; min-height: 46px; font-size: 13px; }
+      .expert-comment { grid-template-columns: 1fr; text-align: center; padding: 18px 16px; }
+      .expert-comment img { width: 80px; height: 80px; margin: 0 auto; }
+
+      .about-text h2,
+      .diagnosis-text h2 { font-size: clamp(21px, 5.4vw, 26px); line-height: 1.5; }
+      .diagnosis-panel { padding: 22px 20px; }
+      .philosophy { padding: 18px; font-size: 14.5px; }
+
+      .step { grid-template-columns: 54px 1fr; gap: 14px; padding: 16px; }
+      .step-num { width: 52px; height: 52px; border-radius: 14px; font-size: 14px; }
+      .step h3 { font-size: 16px; }
+
+      .price-card { padding: 22px 20px; }
+      .price-card h3 { font-size: 18px; }
+      .price { font-size: 30px; }
+      .recommended .price { font-size: 38px; }
+      .credit-note { padding: 13px 14px; font-size: 13px; }
+      .credit-total { padding: 13px 14px; }
+      .credit-total strong { font-size: 18px; }
+      .price-card .btn,
+      .plan-band .btn,
+      .free-card .btn,
+      .business .btn { width: 100%; }
+
+      summary { padding: 15px 44px 15px 16px; font-size: 14.5px; }
+      summary::after { right: 16px; }
+      details p { padding: 0 16px 16px; }
+
+      .final { padding: 52px 0; }
+      .final h2 { font-size: clamp(22px, 5.8vw, 28px); line-height: 1.5; }
+      .final p { font-size: 14.5px; }
+      .business { padding: 24px 20px; text-align: center; }
+      .business h2 { font-size: 19px; }
+      footer { padding: 26px 0 calc(96px + env(safe-area-inset-bottom)); }
+
+      .mobile-cta {
+        display: flex;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      }
+      .mobile-cta .btn { flex: 1; padding: 12px 8px; min-height: 48px; font-size: 13px; }
+    }
+
+    /* --- 小型スマートフォン（iPhone SE 等） --- */
+    @media (max-width: 400px) {
+      .wrap { width: min(100% - 26px, 1120px); }
+      .brand-text { font-size: 13px; }
+      .hero h1 { font-size: 19.5px; }
+      .hero-copy { font-size: 14px; }
+      .btn { font-size: 13.5px; padding: 13px 14px; }
+      .mobile-cta .btn { font-size: 12.5px; padding: 12px 4px; }
+      .hero-price .price { font-size: 29px; }
+      .price { font-size: 27px; }
+      .recommended .price { font-size: 34px; }
+      .worry-body { padding: 18px 16px; }
+      .step { grid-template-columns: 46px 1fr; gap: 11px; padding: 15px; }
+      .step-num { width: 44px; height: 44px; border-radius: 12px; font-size: 13px; }
+      .target-label { font-size: 12.5px; }
     }
   </style>
 </head>
@@ -862,14 +1115,16 @@
         <span class="brand-mark">N</span>
         <span class="brand-text">ノーティス安全運転塾</span>
       </a>
+      <span class="audience-pill">個人向けページ</span>
       <nav class="nav" aria-label="ページ内ナビゲーション">
         <a href="#worries">お悩み</a>
         <a href="#diagnosis">診断内容</a>
-        <a href="#sample">レポート例</a>
+        <a href="#plans">プラン</a>
+        <a href="#free">無料動画</a>
         <a href="#flow">診断の流れ</a>
-        <a href="#price">料金</a>
         <a href="#faq">よくある質問</a>
-        <a class="nav-cta" href="#apply">診断に申し込む</a>
+        <a href="https://free-media.github.io/notice-business-lp/">法人向け</a>
+        <a class="nav-cta" href="#line" data-line-link>LINEで案内を受け取る</a>
       </nav>
       <button class="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileNav">
         <span></span>
@@ -881,11 +1136,12 @@
       <div class="mobile-nav-inner">
         <a href="#worries">お悩み</a>
         <a href="#diagnosis">診断内容</a>
-        <a href="#sample">レポート例</a>
+        <a href="#plans">プラン</a>
+        <a href="#free">無料動画</a>
         <a href="#flow">診断の流れ</a>
-        <a href="#price">料金</a>
         <a href="#faq">よくある質問</a>
-        <a class="nav-cta" href="#apply">診断に申し込む</a>
+        <a href="https://free-media.github.io/notice-business-lp/">法人向けページへ</a>
+        <a class="nav-cta" href="#line" data-line-link>LINEで案内を受け取る</a>
       </div>
     </nav>
   </header>
@@ -894,13 +1150,19 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="badge">家族で確認できる、運転の健康診断</div>
-          <h1><span class="line">あなたの<span class="accent">運転映像</span>から</span><span class="line">事故リスクを専門家が診断</span></h1>
-          <p class="hero-copy">安全運転パーソナル診断は、実際の運転映像をもとに、運転の癖や安全確認の不足、事故につながりやすい行動を専門家が確認する個人向け診断サービスです。</p>
-          <p class="hero-copy">本人も家族も気づきにくい運転の実態を映像とレポートで確認し、これからも安全に運転を続けるための改善ポイントをお伝えします。</p>
+          <div class="badge">個人ドライバー向け｜家族で確認できる、運転の健康診断</div>
+          <h1><span class="line">運転にも、</span><span class="line"><span class="accent">健康診断</span>を。</span></h1>
+          <p class="hero-copy">ノーティス安全運転塾は、専用ドライブレコーダーで撮影した実際の運転映像をもとに、自分では気づきにくい運転の癖や事故につながるリスクを確認する個人向けサービスです。</p>
+          <p class="hero-copy">まずは無料動画やサービス内容をLINEで受け取り、動画学習・パーソナル運転診断・継続プログラムの違いを確認できます。</p>
+          <div class="line-benefits">
+            <div>安全運転に関する無料動画</div>
+            <div>運転診断の案内</div>
+            <div>動画学習プランの案内</div>
+            <div>セミナー・無料コンテンツの案内</div>
+          </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#apply">安全運転パーソナル診断に申し込む</a>
-            <a class="btn btn-secondary" href="#sample">診断サンプルを見る</a>
+            <a class="btn btn-line" href="#line" data-line-link>サービスの案内をLINEで受け取る</a>
+            <a class="btn btn-secondary" href="#free">無料解説動画を見る</a>
           </div>
         </div>
         <div class="visual" aria-label="診断サービスのイメージ">
@@ -908,12 +1170,12 @@
             <img src="assets/hero-driver.png" alt="運転中のドライバーと車のイメージ">
           </div>
           <div class="hero-price">
-            <div class="label">安全運転パーソナル診断</div>
-            <div class="name">安全運転パーソナル診断</div>
-            <div class="price">19,800<small>円（税込）</small></div>
+            <div class="label">まず確認できること</div>
+            <div class="name">運転の健康診断</div>
+            <div class="price">LINE<small>で案内</small></div>
             <div class="price-list">
-              <div><span>✓</span>実際の運転映像をもとに専門家が確認</div>
-              <div><span>✓</span>診断結果をレポートまたは動画で共有</div>
+              <div><span>✓</span>無料動画で安全運転の考え方を確認</div>
+              <div><span>✓</span>必要に応じて運転診断・継続プログラムへ</div>
             </div>
           </div>
         </div>
@@ -976,28 +1238,52 @@
       </div>
     </section>
 
+    <section id="line" class="section">
+      <div class="wrap">
+        <p class="eyebrow">LINE GUIDE</p>
+        <h2 class="title">まずはLINEで、無料動画とサービス案内を受け取る</h2>
+        <p class="lead">個人向けサービスの詳しい案内、無料動画、運転診断や動画学習プランの情報は、LINE公式アカウントから順次ご案内します。</p>
+        <div class="line-panel">
+          <div>
+            <h3>LINE追加後に届く内容</h3>
+            <p>いきなり申込みではなく、まずは無料動画で「運転の健康診断」の考え方を確認できます。気になる方はLINEから運転診断や継続プログラムについて相談できます。</p>
+            <a class="btn btn-line" href="#line" data-line-link>LINE公式アカウントを追加する</a>
+            <div class="line-note">LINE公式アカウントURLは確認中です。確定後、すべてのLINEボタンを同じURLに差し替えます。</div>
+          </div>
+          <ul class="line-list">
+            <li>安全運転に関する無料動画</li>
+            <li>パーソナル運転診断の詳しい案内</li>
+            <li>全60本の動画学習プランの案内</li>
+            <li>セミナーアーカイブ・無料コンテンツの案内</li>
+            <li>継続プログラムの準備状況と申込み方法</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <section id="diagnosis" class="section">
       <div class="wrap diagnosis">
         <div class="diagnosis-text">
           <p class="eyebrow" style="text-align: left;">PERSONAL DIAGNOSIS</p>
           <h2>まずは1回、<br>運転の健康診断から。</h2>
-          <p>安全運転パーソナル診断は、実際の運転映像をもとに、運転の癖や安全確認の不足を専門家が確認する初回診断プランです。</p>
-          <p>AI診断だけで終わらせるのではなく、専門家の視点で映像を確認し、どのような運転行動にリスクがあるのか、今後どこを改善すべきかを分かりやすくお伝えします。</p>
+          <p>安全運転パーソナル診断は、専用ドライブレコーダーで撮影した実際の運転映像をもとに、運転の癖や安全確認の不足を確認する初回診断プランです。</p>
+          <p>AIによるリスク分析だけで終わらせるのではなく、必要に応じて専門家の視点でも映像を確認し、どのような運転行動にリスクがあるのか、今後どこを改善すべきかを分かりやすくお伝えします。</p>
           <p>ノーティスが目指すのは、運転を採点することではありません。自分では気づきにくい癖や確認不足に気づき、事故から遠ざかる運転を身につけるきっかけをつくることです。</p>
         </div>
         <div class="diagnosis-panel">
           <div class="label" style="color: var(--muted); font-weight: 900;">提供内容</div>
-          <div class="price">19,800<small>円（税込）</small></div>
+          <!-- TODO: パーソナル運転診断の最終価格と提供範囲は、正式決定後に SERVICE_CONFIG と表示文言を更新する。 -->
+          <div class="price">19,800<small>円（税込・暫定）</small></div>
           <div class="included">
-            <div><span>✓</span>実際の運転映像の確認</div>
-            <div><span>✓</span>AI診断または映像分析</div>
+            <div><span>✓</span>専用ドライブレコーダーのレンタル</div>
+            <div><span>✓</span>普段の運転映像の撮影</div>
+            <div><span>✓</span>AIによるリスク分析</div>
             <div><span>✓</span>専門家による確認</div>
-            <div><span>✓</span>運転の癖・リスク項目の整理</div>
-            <div><span>✓</span>簡易レポートまたはコメント動画</div>
-            <div><span>✓</span>今後の改善ポイントの提示</div>
-            <div><span>✓</span>必要な方への6ヶ月伴走プラン案内</div>
+            <div><span>✓</span>診断結果レポート</div>
+            <div><span>✓</span>必要に応じた専門家の解説動画</div>
           </div>
-          <a class="btn btn-primary" style="margin-top: 22px; width: 100%;" href="#apply">安全運転パーソナル診断に申し込む</a>
+          <div class="notice">専用機材の発送・返送方法は、申込み後にご案内します。</div>
+          <a class="btn btn-line" style="margin-top: 22px; width: 100%;" href="#line" data-line-link>LINEで運転診断について相談する</a>
         </div>
       </div>
     </section>
@@ -1039,20 +1325,22 @@
           <div class="check-card"><span class="num">09</span>周囲を見る時間</div>
           <div class="check-card"><span class="num">10</span>事故につながる運転の癖</div>
         </div>
-        <div class="message-box">診断の目的は運転を否定することではありません。これからも安全に運転を続けるために、改善できるポイントを見つけることです。</div>
+        <div class="message-box">ノーティスが大切にしているのは、「ぶつからない空間をつくる」「見る時間をつくる」ことです。たとえば、停止線で一度停止する、動いたまま左右確認をしない、進行方向を見てから発進する、右左折時に確認時間を確保する、適切な車間距離を保つといった行動を、普段の運転で実践できているか映像で確認します。</div>
       </div>
     </section>
 
     <section id="flow" class="section section-soft">
       <div class="wrap">
-        <p class="eyebrow">FLOW</p>
-        <h2 class="title">診断の流れ</h2>
+        <p class="eyebrow">AI DIAGNOSIS FLOW</p>
+        <h2 class="title">AI運転診断の流れ</h2>
+        <p class="lead">専用ドライブレコーダーで普段の運転を撮影し、映像からリスクのある場面や確認不足を整理します。</p>
         <div class="steps">
-          <div class="step"><div class="step-num"><small>STEP</small>1</div><div><h3>お申し込み</h3><p>フォームまたはLINEからお申し込みいただきます。</p></div></div>
-          <div class="step"><div class="step-num"><small>STEP</small>2</div><div><h3>運転映像の準備</h3><p>指定の方法で、運転映像をご用意いただきます。ドライブレコーダー映像がある場合は、その映像を活用します。</p></div></div>
-          <div class="step"><div class="step-num"><small>STEP</small>3</div><div><h3>映像診断</h3><p>運転映像をもとに、運転の癖や安全確認の不足を確認します。</p></div></div>
-          <div class="step"><div class="step-num"><small>STEP</small>4</div><div><h3>診断結果の共有</h3><p>簡易レポートまたはコメント動画で、診断結果と改善ポイントをお伝えします。</p></div></div>
-          <div class="step"><div class="step-num"><small>STEP</small>5</div><div><h3>必要に応じて継続サポート</h3><p>希望される方には、6ヶ月伴走プランをご案内します。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>1</div><div><h3>専用ドライブレコーダーを発送</h3><p>ノーティスから診断に使用する専用機材をお届けします。発送・返送方法は申込み後にご案内します。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>2</div><div><h3>普段の運転を撮影</h3><p>利用者ご自身で車両に設置し、指定された期間・方法で普段の運転映像を撮影します。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>3</div><div><h3>リスクのある場面を抽出</h3><p>運転映像から、停止、右左折、視線、車間距離など、事故リスクにつながりやすい場面を確認します。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>4</div><div><h3>運転の癖をレポート化</h3><p>自分では気づきにくい確認不足や運転の癖を、診断結果レポートとして整理します。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>5</div><div><h3>映像や解説で結果を確認</h3><p>診断結果はレポート、必要に応じた専門家の解説動画などで確認できます。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>6</div><div><h3>改善する運転動作を学ぶ</h3><p>診断後は、動画学習や継続プログラムを通じて、安全をつくる運転動作を日々の運転で実践します。</p></div></div>
         </div>
       </div>
     </section>
@@ -1086,36 +1374,71 @@
       </div>
     </section>
 
-    <section id="price" class="section">
+    <section id="plans" class="section">
       <div class="wrap">
-        <p class="eyebrow">PRICE</p>
-        <h2 class="title">料金プラン</h2>
-        <p class="lead">いきなり6ヶ月契約ではなく、まずは1回の安全運転パーソナル診断から始められます。</p>
+        <p class="eyebrow">SERVICE PLANS</p>
+        <h2 class="title">目的に合わせて選べる3つのプラン</h2>
+        <p class="lead">まず知識を学びたい方、映像で運転状態を確認したい方、約6ヶ月かけて継続的に見直したい方に分けてご案内します。詳しい申込み方法はLINEでご確認ください。</p>
         <div class="pricing-grid">
           <div class="card price-card">
-            <h3>無料説明動画 / 無料オンライン診断セミナー</h3>
-            <div class="price">0<small>円</small></div>
-            <p>診断の考え方、映像診断で確認するポイント、サービス内容を説明します。</p>
-            <div class="price-list"><div><span>✓</span>申し込み前の不安を下げる</div><div><span>✓</span>映像診断の価値を確認</div></div>
-            <a class="btn btn-secondary" href="#free">無料コンテンツを見る</a>
+            <div class="plan-tag">プランA</div>
+            <h3>動画学習プラン</h3>
+            <div class="price">12,000<small>円（税込・案）</small></div>
+            <p>診断を受ける前に、まず安全運転の知識や運転ルーティンを学びたい方向けです。</p>
+            <div class="price-meta">
+              <div>対象者：安全運転の考え方を学びたい方</div>
+              <div>提供期間：約6ヶ月間</div>
+              <div>月額換算：2,000円</div>
+            </div>
+            <div class="price-list">
+              <div><span>✓</span>全60本の教育動画</div>
+              <div><span>✓</span>LINE公式アカウントから配信</div>
+              <div><span>✓</span>3日程度に1回の頻度で学習</div>
+              <div><span>✓</span>一時停止、右左折、車間距離などに偏らず配信</div>
+            </div>
+            <div class="notice">契約条件は調整中です。月ごとの解約可否や一括契約の扱いは、確定後にLINEでご案内します。</div>
+            <a class="btn btn-line" href="#line" data-line-link>動画学習プランの案内を受け取る</a>
           </div>
           <div class="card price-card recommended">
             <div class="ribbon">おすすめ</div>
-            <h3>安全運転パーソナル診断</h3>
-            <div class="price">19,800<small>円（税込）</small></div>
-            <p>運転映像診断、専門家確認、簡易レポートまたはコメント動画。まず1回、客観的に運転状態を確認できます。</p>
-            <div class="price-list"><div><span>✓</span>運転映像診断</div><div><span>✓</span>専門家確認</div><div><span>✓</span>簡易レポートまたはコメント動画</div></div>
-            <div class="credit-note">診断後に6ヶ月伴走プランへ進む場合、診断料19,800円（税込）をプラン料金に充当できます。</div>
-            <a class="btn btn-primary" href="#apply">安全運転パーソナル診断に申し込む</a>
+            <div class="plan-tag">プランB</div>
+            <h3>パーソナル運転診断</h3>
+            <!-- TODO: 19,800円は暫定案。最終価格・提供範囲・専門家解説動画の条件は正式決定後に更新する。 -->
+            <div class="price">19,800<small>円（税込・暫定）</small></div>
+            <p>実際の運転映像を使い、自分の癖や事故につながるリスクを確認したい方向けです。</p>
+            <div class="price-meta">
+              <div>対象者：運転状態を客観的に確認したい方</div>
+              <div>提供期間：単発診断</div>
+            </div>
+            <div class="price-list">
+              <div><span>✓</span>専用ドライブレコーダーのレンタル</div>
+              <div><span>✓</span>運転映像の撮影</div>
+              <div><span>✓</span>AIによるリスク分析</div>
+              <div><span>✓</span>診断結果レポート</div>
+              <div><span>✓</span>必要に応じた専門家の解説動画</div>
+            </div>
+            <div class="credit-note">専用機材の発送・返送方法は、申込み後にご案内します。</div>
+            <a class="btn btn-line" href="#line" data-line-link>LINEで運転診断について相談する</a>
           </div>
           <div class="card price-card">
-            <h3>6ヶ月伴走プラン</h3>
-            <div class="price">99,000<small>円（税込）</small></div>
-            <p>診断後、継続的に安全運転を身につけたい方向けの上位プランです。</p>
-            <div class="price-list"><div><span>✓</span>動画学習</div><div><span>✓</span>継続サポート</div><div><span>✓</span>改善確認</div></div>
-            <div class="credit-note">安全運転パーソナル診断を受けた方は、診断料19,800円（税込）をプラン料金に充当できます。</div>
-            <div class="credit-total">診断料充当後の追加費用：<strong>79,200円（税込）</strong></div>
-            <div class="notice" style="margin: 14px 0 0;">希望者のみ。まずは診断のみでもご利用いただけます。</div>
+            <div class="plan-tag">プランC</div>
+            <h3>継続プログラム</h3>
+            <div class="pending-price">価格調整中</div>
+            <p>診断だけでなく、約6ヶ月間の教育と再診断まで受けたい方向けです。</p>
+            <div class="price-meta">
+              <div>対象者：継続的に運転を見直したい方</div>
+              <div>提供期間：約6ヶ月間</div>
+            </div>
+            <div class="price-list">
+              <div><span>✓</span>初回診断</div>
+              <div><span>✓</span>動画学習</div>
+              <div><span>✓</span>LINEによる質問サポート</div>
+              <div><span>✓</span>安全運転ルーティンの実践</div>
+              <div><span>✓</span>2回目の診断</div>
+              <div><span>✓</span>行動変化の確認</div>
+            </div>
+            <div class="notice">最終価格、初回診断料金の扱い、継続時の機材提供条件は調整中です。詳細はLINEでご案内します。</div>
+            <a class="btn btn-line" href="#line" data-line-link>継続プログラムの案内を受け取る</a>
           </div>
         </div>
       </div>
@@ -1123,18 +1446,18 @@
 
     <section class="section section-soft">
       <div class="wrap">
-        <p class="eyebrow">6 MONTH SUPPORT</p>
-        <h2 class="title">必要な方には、6ヶ月伴走プランもご用意しています</h2>
+        <p class="eyebrow">CONTINUOUS SUPPORT</p>
+        <h2 class="title">継続プログラムは、診断後に必要な方へご案内します</h2>
         <div class="plan-band">
           <div>
-            <p style="margin: 0 0 14px; color: #42536a;">安全運転パーソナル診断を受けた方が、診断後に6ヶ月伴走プランへ進まれる場合、診断料19,800円（税込）をプラン料金に充当します。</p>
-            <p style="margin: 0 0 14px; color: #42536a;">まずは1回の診断だけでもご利用いただけます。診断結果を確認したうえで、継続的に運転を見直したい方のみ6ヶ月伴走プランをご検討ください。</p>
-            <p style="margin: 0; color: #42536a;">動画学習や診断結果に基づいた改善サポートを通じて、安全をつくる運転を日々の運転に定着させていきます。</p>
+            <p style="margin: 0 0 14px; color: #42536a;">継続プログラムでは、初回診断、動画学習、LINEによる質問サポート、安全運転ルーティンの実践、2回目の診断を通じて、行動変化を確認する流れを想定しています。</p>
+            <p style="margin: 0 0 14px; color: #42536a;">まずは無料動画やサービス案内を確認し、必要に応じてパーソナル運転診断や継続プログラムをご検討ください。</p>
+            <p style="margin: 0; color: #42536a;">継続プログラムにおける機材の取り扱いは、プラン案内時にご説明します。</p>
           </div>
           <div>
-            <div class="price">99,000<small>円（税込）</small></div>
-            <div class="credit-total">診断後の追加費用：<strong>79,200円（税込）</strong></div>
-            <div class="notice">6ヶ月伴走プランは任意です。まずは安全運転パーソナル診断のみでもご利用いただけます。</div>
+            <div class="pending-price">詳細はLINEで案内</div>
+            <div class="notice">最終価格、診断料金の扱い、機材の返送・再送・プレゼント条件は未確定です。確定前の条件は掲載していません。</div>
+            <a class="btn btn-line" style="margin-top: 18px; width: 100%;" href="#line" data-line-link>サービスの案内をLINEで受け取る</a>
           </div>
         </div>
       </div>
@@ -1143,17 +1466,22 @@
     <section id="free" class="section">
       <div class="wrap">
         <p class="eyebrow">FREE CONTENTS</p>
-        <h2 class="title">まずは無料で、診断の考え方を知る</h2>
-        <p class="lead">いきなり診断を申し込むのが不安な方には、無料説明動画または無料オンライン診断セミナーをご用意します。</p>
+        <h2 class="title">まずは無料動画で、安全運転の考え方を知る</h2>
+        <p class="lead">いきなり診断を申し込むのではなく、まずは短い安全運転講習動画やセミナーアーカイブで、運転リスクが発生する仕組みを確認できます。</p>
         <div class="free-band">
           <div class="card free-card">
-            <h3>無料説明動画</h3>
-            <p>実際にどのような視点で運転映像を見るのか、どのような運転行動が事故リスクにつながるのかを、分かりやすく解説します。</p>
+            <h3>安全運転の考え方を動画で学ぶ</h3>
+            <!-- TODO: 公開可能なショート動画URLまたは動画IDが確定したら埋め込みコンポーネントへ差し替える。 -->
+            <div class="video-placeholder">無料解説動画<br>差し替え予定</div>
+            <p>どのような運転行動が事故リスクにつながるのか、短い動画で確認できるようにします。</p>
+            <a class="btn btn-line" href="#line" data-line-link>無料動画や安全運転情報を受け取る</a>
           </div>
           <div class="card free-card">
-            <h3>無料オンライン診断セミナー</h3>
-            <p>映像診断の価値を体感し、申し込み前の不安を下げるためのオンラインセミナーです。</p>
-            <a class="btn btn-secondary" href="#apply">無料オンライン診断セミナーを見る</a>
+            <h3>セミナーアーカイブを見る</h3>
+            <!-- TODO: 過去セミナーの公開URLまたは動画IDが確定したら埋め込みコンポーネントへ差し替える。 -->
+            <div class="video-placeholder">セミナーアーカイブ<br>差し替え予定</div>
+            <p>サービスの考え方や、運転映像を使った事例紹介を確認できるコンテンツとして準備します。</p>
+            <a class="btn btn-line" href="#line" data-line-link>サービスの案内をLINEで受け取る</a>
           </div>
         </div>
       </div>
@@ -1164,27 +1492,29 @@
         <p class="eyebrow">FAQ</p>
         <h2 class="title">よくある質問</h2>
         <div class="faq">
-          <details open><summary>親本人ではなく、家族が申し込んでもよいですか？</summary><p>はい。ご家族からのご相談も可能です。ただし、運転映像の提供や診断結果の共有については、ご本人の同意を得たうえで進めることを推奨します。</p></details>
-          <details><summary>免許返納を勧めるサービスですか？</summary><p>いいえ。免許返納を強制するサービスではありません。現在の運転状態を客観的に確認し、これからも安全に運転を続けるための材料を提供するサービスです。</p></details>
-          <details><summary>ドライブレコーダーがない場合でも利用できますか？</summary><p>利用方法を相談できます。ドライブレコーダー映像がある場合はスムーズですが、映像の用意方法については個別にご案内します。</p></details>
-          <details><summary>診断だけでも申し込めますか？</summary><p>はい。安全運転パーソナル診断のみのお申し込みも可能です。6ヶ月伴走プランは希望者のみの上位プランです。</p></details>
-          <details><summary>診断結果は家族で見られますか？</summary><p>はい。家族で確認しやすい形式で共有できるようにします。親本人を責めるためではなく、今後の安全運転を話し合う材料としてご活用ください。</p></details>
-          <details><summary>どのような映像を用意すればよいですか？</summary><p>普段の運転が分かるドライブレコーダー映像をご用意ください。具体的な映像の長さや提出方法については、お申し込み後にご案内します。</p></details>
-          <details><summary>診断後に6ヶ月伴走プランへ進む場合、診断料はどうなりますか？</summary><p>安全運転パーソナル診断を受けた方が6ヶ月伴走プランへ進まれる場合、診断料19,800円（税込）をプラン料金に充当します。6ヶ月伴走プランは99,000円（税込）のため、診断後の追加費用は79,200円（税込）です。なお、6ヶ月伴走プランは任意のため、まずは診断のみでもご利用いただけます。</p></details>
-          <details><summary>診断結果を見て、必ず6ヶ月プランに入る必要はありますか？</summary><p>いいえ。6ヶ月伴走プランは希望者のみです。まずは安全運転パーソナル診断のみでもご利用いただけます。診断結果を確認したうえで、継続的に運転を見直したい方にのみご案内します。</p></details>
-          <details><summary>家族に知られずに本人だけで申し込めますか？</summary><p>はい。ご本人だけでもお申し込みいただけます。診断結果を家族と共有するかどうかは、ご本人の判断に合わせてご相談いただけます。</p></details>
+          <details open><summary>どのような人に向いていますか？</summary><p>最近の運転に少し不安があるご本人、高齢の親の運転を心配しているご家族、仕事や日常で車を使い続けたい方に向いています。運転を責めるためではなく、現在の運転状態を客観的に確認するためのサービスです。</p></details>
+          <details><summary>運転に自信がある人でも受ける意味はありますか？</summary><p>はい。本人は安全に運転しているつもりでも、映像で確認すると、確認不足や危険に近づきやすい癖が見つかることがあります。身体の健康診断と同じように、現在の運転状態を確認することが大切です。</p></details>
+          <details><summary>ドライブレコーダーを持っていない場合でも利用できますか？</summary><p>はい。診断では、分析システムに対応した専用のドライブレコーダーをお届けする想定です。専用機材の発送・返送方法は、申込み後にご案内します。</p></details>
+          <details><summary>所有しているドライブレコーダーでは診断できませんか？</summary><p>所有されているドライブレコーダーでは診断できません。最適な分析を行うため、分析システムに対応した専用ドライブレコーダーをお届けします。取り付け方法もご案内しますのでご安心ください。</p></details>
+          <details><summary>ドライブレコーダーの取り付けは自分でもできますか？</summary><p>はい、ご自身で取り付けていただく想定です。シガーソケットから電源を取るタイプの機材を使用する場合は、専門的な知識や工具、複雑な配線工事は必要ありません。詳しい取り付け方法は申込み後にご案内します。</p></details>
+          <details><summary>診断結果はどのように受け取れますか？</summary><p>運転映像の内容を確認し、診断レポートや必要に応じた専門家による解説動画で結果をお届けする想定です。具体的な納期や受け取り方法は、プラン案内時にご説明します。</p></details>
+          <details><summary>動画学習プランでは何が届きますか？</summary><p>全60本の「安全をつくる運転ルーティン」の動画を、約6ヶ月間でLINE公式アカウントから配信する案です。右左折、車間距離、一時停止などのテーマに偏らず、クイズと解説形式のショート動画で学べるようにします。</p></details>
+          <details><summary>継続プログラムとの違いは何ですか？</summary><p>動画学習プランは、診断を受けずに安全運転の知識や運転ルーティンを学びたい方向けです。パーソナル運転診断は、実際の運転映像をもとに癖やリスクを確認する単発診断です。継続プログラムは、初回診断、動画学習、LINE質問サポート、2回目の診断までを含む流れを想定しています。</p></details>
+          <details><summary>プログラム期間中、質問はできますか？</summary><p>はい、ご受講中は専用のLINEにて、ご質問いただけます。動画の内容で分からない点や、日々の運転で悩んだことなど、お気軽にご相談ください。回答方法や対応期間は、各プランの正式案内時にご説明します。</p></details>
+          <details><summary>LINE追加後には何が届きますか？</summary><p>安全運転に関する無料動画、運転診断の案内、動画学習プランの案内、セミナーアーカイブや無料コンテンツの案内を受け取れるように準備しています。</p></details>
+          <details><summary>法人での申し込みは可能ですか？</summary><p>企業・団体での安全運転教育をご検討の場合は、法人向けページをご確認ください。個人向けページとは、サービス内容や問い合わせ方法が異なります。</p></details>
         </div>
       </div>
     </section>
 
     <section id="apply" class="final">
       <div class="wrap">
-        <h2>自分では気づきにくい運転の癖を、<br>映像で確認してみませんか？</h2>
-        <p>安全運転パーソナル診断は、実際の運転映像をもとに、本人も家族も気づきにくい運転の癖や安全確認の不足を確認する個人向け診断サービスです。まずは1回の診断から、これからも安全に運転を続けるための改善ポイントを確認しませんか？</p>
-        <p>診断後に6ヶ月伴走プランへ進む場合は、診断料19,800円（税込）をプラン料金に充当できます。まずは1回の診断からご利用いただけます。</p>
+        <h2>運転にも、健康診断を。<br>まずはLINEで詳しい案内を受け取りませんか？</h2>
+        <p>無料動画で安全運転の考え方を確認したうえで、動画学習プラン、パーソナル運転診断、継続プログラムの違いを確認できます。</p>
+        <p>LINE追加後は、安全運転に関する無料動画、運転診断の案内、動画学習プラン、セミナーアーカイブなどを受け取れるように準備しています。</p>
         <div class="hero-actions" style="justify-content: center;">
-          <a class="btn btn-primary" href="#price">安全運転パーソナル診断に申し込む</a>
-          <a class="btn btn-secondary" href="#sample">診断サンプルを見る</a>
+          <a class="btn btn-line" href="#line" data-line-link>LINE公式アカウントを追加する</a>
+          <a class="btn btn-secondary" href="#plans">プランを確認する</a>
         </div>
       </div>
     </section>
@@ -1210,11 +1540,31 @@
   </footer>
 
   <div class="mobile-cta">
-    <a class="btn btn-secondary" href="#sample">レポート例</a>
-    <a class="btn btn-primary" href="#apply">診断に申し込む</a>
+    <a class="btn btn-secondary" href="#plans">プラン</a>
+    <a class="btn btn-line" href="#line" data-line-link>LINEで案内</a>
   </div>
   <script>
     (() => {
+      const SERVICE_CONFIG = {
+        lineUrl: '#line',
+        videoLearning: {
+          priceLabel: '12,000円（税込・案）',
+          period: '約6ヶ月間',
+          delivery: 'LINE公式アカウントから配信'
+        },
+        personalDiagnosis: {
+          priceLabel: '19,800円（税込・暫定）',
+          equipment: '専用ドライブレコーダーをレンタル'
+        },
+        continuousProgram: {
+          priceLabel: '価格調整中'
+        }
+      };
+      // TODO: LINE公式アカウントURL、各プランの最終価格、契約条件、機材返送/再送/プレゼント条件が確定したら SERVICE_CONFIG と表示文言を更新する。
+      document.querySelectorAll('[data-line-link]').forEach((link) => {
+        link.setAttribute('href', SERVICE_CONFIG.lineUrl);
+      });
+
       const header = document.querySelector('.header');
       const button = document.querySelector('.hamburger');
       const mobileNav = document.querySelector('#mobileNav');
