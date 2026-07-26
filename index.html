@@ -548,6 +548,22 @@
       color: var(--navy);
       font-weight: 900;
     }
+    .video-embed {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid #d6e7f7;
+      background: #0f3e6d;
+      box-shadow: 0 12px 28px rgba(15, 62, 109, .12);
+    }
+    .video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
     .sample-media {
       position: relative;
       aspect-ratio: 16 / 9;
@@ -1471,15 +1487,17 @@
         <div class="free-band">
           <div class="card free-card">
             <h3>安全運転の考え方を動画で学ぶ</h3>
-            <!-- TODO: 公開可能なショート動画URLまたは動画IDが確定したら埋め込みコンポーネントへ差し替える。 -->
-            <div class="video-placeholder">無料解説動画<br>差し替え予定</div>
+            <div class="video-embed">
+              <iframe src="https://www.youtube-nocookie.com/embed/tb3eJqBH_2M" title="安全運転の考え方を動画で学ぶ" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
             <p>どのような運転行動が事故リスクにつながるのか、短い動画で確認できるようにします。</p>
             <a class="btn btn-line" href="#line" data-line-link>無料動画や安全運転情報を受け取る</a>
           </div>
           <div class="card free-card">
             <h3>セミナーアーカイブを見る</h3>
-            <!-- TODO: 過去セミナーの公開URLまたは動画IDが確定したら埋め込みコンポーネントへ差し替える。 -->
-            <div class="video-placeholder">セミナーアーカイブ<br>差し替え予定</div>
+            <div class="video-embed">
+              <iframe src="https://www.youtube-nocookie.com/embed/Rzg4Hs_MyaM" title="セミナーアーカイブ" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
             <p>サービスの考え方や、運転映像を使った事例紹介を確認できるコンテンツとして準備します。</p>
             <a class="btn btn-line" href="#line" data-line-link>サービスの案内をLINEで受け取る</a>
           </div>
