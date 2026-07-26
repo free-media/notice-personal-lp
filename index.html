@@ -1272,8 +1272,8 @@
         </div>
         <div class="diagnosis-panel">
           <div class="label" style="color: var(--muted); font-weight: 900;">提供内容</div>
-          <!-- TODO: パーソナル運転診断の最終価格と提供範囲は、正式決定後に SERVICE_CONFIG と表示文言を更新する。 -->
-          <div class="price">19,800<small>円（税込・暫定）</small></div>
+          <!-- TODO: パーソナル運転診断の提供範囲は、正式決定後に SERVICE_CONFIG と表示文言を更新する。 -->
+          <div class="price">19,800<small>円（税込）</small></div>
           <div class="included">
             <div><span>✓</span>専用ドライブレコーダーのレンタル</div>
             <div><span>✓</span>普段の運転映像の撮影</div>
@@ -1383,12 +1383,12 @@
           <div class="card price-card">
             <div class="plan-tag">プランA</div>
             <h3>動画学習プラン</h3>
-            <div class="price">12,000<small>円（税込・案）</small></div>
+            <div class="price">2,000<small>円（税込）/ 月</small></div>
             <p>診断を受ける前に、まず安全運転の知識や運転ルーティンを学びたい方向けです。</p>
             <div class="price-meta">
               <div>対象者：安全運転の考え方を学びたい方</div>
               <div>提供期間：約6ヶ月間</div>
-              <div>月額換算：2,000円</div>
+              <div>月額：2,000円（税込）</div>
             </div>
             <div class="price-list">
               <div><span>✓</span>全60本の教育動画</div>
@@ -1403,8 +1403,8 @@
             <div class="ribbon">おすすめ</div>
             <div class="plan-tag">プランB</div>
             <h3>パーソナル運転診断</h3>
-            <!-- TODO: 19,800円は暫定案。最終価格・提供範囲・専門家解説動画の条件は正式決定後に更新する。 -->
-            <div class="price">19,800<small>円（税込・暫定）</small></div>
+            <!-- TODO: 提供範囲・専門家解説動画の条件は正式決定後に更新する。 -->
+            <div class="price">19,800<small>円（税込）</small></div>
             <p>実際の運転映像を使い、自分の癖や事故につながるリスクを確認したい方向けです。</p>
             <div class="price-meta">
               <div>対象者：運転状態を客観的に確認したい方</div>
@@ -1548,12 +1548,12 @@
       const SERVICE_CONFIG = {
         lineUrl: '#line',
         videoLearning: {
-          priceLabel: '12,000円（税込・案）',
+          priceLabel: '月額2,000円（税込）',
           period: '約6ヶ月間',
           delivery: 'LINE公式アカウントから配信'
         },
         personalDiagnosis: {
-          priceLabel: '19,800円（税込・暫定）',
+          priceLabel: '19,800円（税込）',
           equipment: '専用ドライブレコーダーをレンタル'
         },
         continuousProgram: {
