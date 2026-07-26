@@ -55,12 +55,14 @@
       line-height: 1.45;
       font-weight: 900;
       text-align: center;
+      text-wrap: balance;
       margin: 0;
     }
     .lead {
       color: var(--muted);
       font-size: clamp(14.5px, .5vw + 12.8px, 15.5px);
       text-align: center;
+      text-wrap: pretty;
       max-width: 780px;
       margin: 16px auto 0;
     }
@@ -84,6 +86,7 @@
       text-decoration: none;
       font-weight: 900;
       font-size: 15px;
+      line-height: 1.45;
       transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
       white-space: nowrap;
     }
@@ -362,6 +365,7 @@
       font-size: 21px;
       line-height: 1.45;
       font-weight: 900;
+      text-wrap: balance;
     }
     .worry-list {
       display: grid;
@@ -442,6 +446,7 @@
       line-height: 1.45;
       margin: 0 0 18px;
       font-weight: 900;
+      text-wrap: balance;
     }
     .about-text p,
     .diagnosis-text p { color: #42536a; margin: 0 0 14px; }
@@ -512,6 +517,7 @@
       line-height: 1.45;
       margin: 0 0 12px;
       font-weight: 900;
+      text-wrap: balance;
     }
     .line-panel p { color: #335445; margin: 0 0 16px; }
     .line-list {
@@ -926,6 +932,13 @@
       gap: 10px;
     }
 
+    .mobile-cta .btn-purchase {
+      background: var(--orange);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(255, 138, 0, .24);
+    }
+    .mobile-cta .btn-purchase:hover { background: var(--orange-dark); }
+
     /* =========================================================
        レスポンシブ
        1180 / 1024 : デスクトップ〜タブレット横
@@ -944,8 +957,8 @@
     }
 
     @media (max-width: 1024px) {
-      .nav { gap: 13px; font-size: 12.5px; }
-      .nav .nav-cta { padding: 9px 13px; }
+      .nav { display: none; }
+      .hamburger { display: inline-flex; }
       .grid-4 { grid-template-columns: repeat(2, 1fr); }
       .target-list { grid-template-columns: repeat(2, 1fr); }
       .visual { min-height: 470px; }
@@ -1003,6 +1016,29 @@
       .plan-band { justify-items: center; text-align: center; }
     }
 
+    /* --- タブレット：長い見出しと本文を読みやすい幅・行間に調整 --- */
+    @media (min-width: 721px) and (max-width: 980px) {
+      .wrap { width: min(100% - 48px, 1120px); }
+      .title { font-size: clamp(26px, 3.6vw, 30px); line-height: 1.5; }
+      .lead { font-size: 15.5px; line-height: 1.9; max-width: 720px; }
+      .hero-copy,
+      .about-text p,
+      .diagnosis-text p,
+      .line-panel p,
+      .message-box,
+      .plan-band p,
+      .final p { font-size: 15.5px; }
+      .price-card p,
+      .price-list,
+      .price-meta,
+      .free-card p,
+      details p,
+      .step p,
+      .target-row p,
+      .result-card p { font-size: 15px; }
+      .btn { font-size: 15px; }
+    }
+
     /* --- 小さめタブレット --- */
     @media (max-width: 860px) {
       .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -1020,10 +1056,10 @@
       .section { padding: 48px 0; }
       section[id] { scroll-margin-top: 64px; }
 
-      .title { font-size: clamp(21px, 5.7vw, 27px); line-height: 1.5; }
+      .title { font-size: clamp(22px, 5.4vw, 26px); line-height: 1.45; }
       .eyebrow { font-size: 12px; letter-spacing: .06em; }
-      .lead { margin-top: 12px; }
-      .btn { font-size: 14.5px; white-space: normal; text-align: center; }
+      .lead { margin-top: 12px; font-size: 15px; line-height: 1.9; }
+      .btn { font-size: 14.5px; line-height: 1.45; white-space: normal; text-align: center; }
 
       .header-inner { height: 56px; }
       .brand-mark { width: 30px; height: 30px; border-radius: 9px; font-size: 14px; }
@@ -1037,12 +1073,12 @@
       .hero::before { display: none; }
       .badge { font-size: 12px; padding: 7px 13px; }
       .hero h1 { font-size: clamp(20px, 5.9vw, 26px); line-height: 1.38; margin: 16px 0 14px; }
-      .hero-copy { font-size: 14.5px; line-height: 1.85; }
+      .hero-copy { font-size: 15px; line-height: 1.9; }
       .hero-actions { gap: 10px; margin-top: 22px; }
       .hero-actions .btn { width: 100%; min-height: 48px; padding: 13px 16px; }
       .line-benefits { grid-template-columns: 1fr; }
       .line-panel { padding: 22px 18px; text-align: left; }
-      .line-list li { font-size: 13.5px; }
+      .line-list li { font-size: 14.5px; }
       .hero-photo img { height: clamp(205px, 58vw, 260px); }
       .hero-price { width: min(94%, 460px); margin-top: -36px; padding: 18px; }
       .hero-price .name { font-size: 18px; }
@@ -1055,7 +1091,7 @@
       .worry-layout { gap: 18px; }
       .worry-body { padding: 20px; }
       .worry-body h3 { font-size: 18.5px; }
-      .worry-list li { font-size: 14px; }
+      .worry-list li { font-size: 14.5px; }
       .problem-card { min-height: auto; padding: 20px; }
       .result-card { min-height: auto; padding: 20px 18px; }
       .result-card::after { font-size: 46px; right: 12px; }
@@ -1069,8 +1105,28 @@
 
       .about-text h2,
       .diagnosis-text h2 { font-size: clamp(21px, 5.4vw, 26px); line-height: 1.5; }
+      .about-text p,
+      .diagnosis-text p,
+      .line-panel p,
+      .message-box,
+      .philosophy,
+      .plan-band p,
+      .final p { font-size: 15px; line-height: 1.9; }
       .diagnosis-panel { padding: 22px 20px; }
       .philosophy { padding: 18px; font-size: 14.5px; }
+      .included div,
+      .notice,
+      .sample-card p,
+      .check-card,
+      .step p,
+      .result-card p,
+      .target-row p,
+      .price-card p,
+      .price-list,
+      .price-meta,
+      .free-card p,
+      details p,
+      .business p { font-size: 14.5px; line-height: 1.85; }
 
       .step { grid-template-columns: 54px 1fr; gap: 14px; padding: 16px; }
       .step-num { width: 52px; height: 52px; border-radius: 14px; font-size: 14px; }
@@ -1087,6 +1143,7 @@
       .plan-band .btn,
       .free-card .btn,
       .business .btn { width: 100%; }
+      .free-card .btn { padding-block: 11px; }
 
       summary { padding: 15px 44px 15px 16px; font-size: 14.5px; }
       summary::after { right: 16px; }
@@ -1101,19 +1158,21 @@
 
       .mobile-cta {
         display: flex;
-        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        gap: 8px;
+        padding: 9px 12px calc(9px + env(safe-area-inset-bottom));
       }
-      .mobile-cta .btn { flex: 1; padding: 12px 8px; min-height: 48px; font-size: 13px; }
+      .mobile-cta .btn { flex: 1; padding: 12px 8px; min-height: 50px; font-size: 14px; line-height: 1.2; }
     }
 
     /* --- 小型スマートフォン（iPhone SE 等） --- */
     @media (max-width: 400px) {
       .wrap { width: min(100% - 26px, 1120px); }
       .brand-text { font-size: 13px; }
-      .hero h1 { font-size: 19.5px; }
-      .hero-copy { font-size: 14px; }
+      .audience-pill { padding-inline: 9px; font-size: 11px; }
+      .hero h1 { font-size: 20.5px; }
+      .hero-copy { font-size: 14.5px; }
       .btn { font-size: 13.5px; padding: 13px 14px; }
-      .mobile-cta .btn { font-size: 12.5px; padding: 12px 4px; }
+      .mobile-cta .btn { font-size: 13.5px; padding: 12px 5px; }
       .hero-price .price { font-size: 29px; }
       .price { font-size: 27px; }
       .recommended .price { font-size: 34px; }
@@ -1558,8 +1617,8 @@
   </footer>
 
   <div class="mobile-cta">
-    <a class="btn btn-secondary" href="#plans">プラン</a>
-    <a class="btn btn-line" href="#line" data-line-link>LINEで案内</a>
+    <a class="btn btn-line" href="#line" data-line-link>LINEで診断</a>
+    <a class="btn btn-purchase" href="https://notice-myself.stores.jp/" target="_blank" rel="noopener noreferrer">購入</a>
   </div>
   <script>
     (() => {
