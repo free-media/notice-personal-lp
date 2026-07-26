@@ -961,9 +961,19 @@
       .hamburger { display: inline-flex; }
       .grid-4 { grid-template-columns: repeat(2, 1fr); }
       .target-list { grid-template-columns: repeat(2, 1fr); }
-      .visual { min-height: 470px; }
-      .hero-photo img { height: 320px; }
-      .hero-price { padding: 20px; }
+      .hero .wrap { display: flex; flex-direction: column; }
+      .hero-grid { display: contents; }
+      .hero-grid > :first-child { display: contents; }
+      .hero .badge { order: 1; }
+      .hero h1 { order: 2; }
+      .hero .visual { order: 3; width: 100%; max-width: 640px; margin-inline: auto; min-height: 0; position: static; }
+      .hero .hero-copy:nth-of-type(1) { order: 4; }
+      .hero .hero-copy:nth-of-type(2) { order: 5; }
+      .hero .line-benefits { order: 6; }
+      .hero .hero-actions { order: 7; }
+      .hero-photo { position: static; width: 100%; }
+      .hero-photo img { height: clamp(240px, 40vw, 330px); }
+      .hero-price { position: relative; z-index: 2; inset: auto; width: min(92%, 520px); margin: -44px auto 0; padding: 20px; }
       .hero-price .price { font-size: 36px; }
       .expert-comment { grid-template-columns: 78px 1fr; }
       .expert-comment img { width: 78px; height: 78px; }
