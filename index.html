@@ -1071,8 +1071,18 @@
       .hero { padding: 30px 0 40px; }
       /* 背景写真は本文の可読性を下げるため非表示（下に実写真あり） */
       .hero::before { display: none; }
+      .hero .wrap { display: flex; flex-direction: column; }
+      .hero-grid { display: contents; }
+      .hero-grid > :first-child { display: contents; }
+      .hero .badge { order: 1; }
+      .hero h1 { order: 2; }
+      .hero .visual { order: 3; }
+      .hero .hero-copy:nth-of-type(1) { order: 4; }
+      .hero .hero-copy:nth-of-type(2) { order: 5; }
+      .hero .line-benefits { order: 6; }
+      .hero .hero-actions { order: 7; }
       .badge { font-size: 12px; padding: 7px 13px; }
-      .hero h1 { font-size: clamp(20px, 5.9vw, 26px); line-height: 1.38; margin: 16px 0 14px; }
+      .hero h1 { font-size: clamp(18px, 5.2vw, 24px); line-height: 1.34; margin: 16px 0 14px; }
       .hero h1 .line-tight { font-size: .92em; }
       .hero-copy { font-size: 15px; line-height: 1.9; }
       .hero-actions { gap: 10px; margin-top: 22px; }
@@ -1405,8 +1415,8 @@
 
     <section id="flow" class="section section-soft">
       <div class="wrap">
-        <p class="eyebrow">AI DIAGNOSIS FLOW</p>
-        <h2 class="title">AI運転診断の流れ</h2>
+        <p class="eyebrow">PERSONAL DIAGNOSIS FLOW</p>
+        <h2 class="title">パーソナル運転診断の流れ</h2>
         <p class="lead">専用ドライブレコーダーで普段の運転を撮影し、映像からリスクのある場面や確認不足を整理します。</p>
         <div class="steps">
           <div class="step"><div class="step-num"><small>STEP</small>1</div><div><h3>専用ドライブレコーダーを発送</h3><p>ノーティスから診断に使用する専用機材をお届けします。発送・返送方法は申込み後にご案内します。</p></div></div>
