@@ -284,7 +284,7 @@
     .point strong { display: block; color: var(--navy); font-size: 15px; }
     .visual {
       position: relative;
-      min-height: 520px;
+      min-height: 360px;
     }
     .hero-photo {
       position: absolute;
@@ -296,21 +296,6 @@
       background: #fff;
     }
     .hero-photo img { width: 100%; height: 360px; object-fit: cover; object-position: center; }
-    .hero-price {
-      position: absolute;
-      left: 0;
-      bottom: 24px;
-      width: min(440px, 92%);
-      padding: 22px;
-      background: rgba(255, 255, 255, .96);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-    }
-    .hero-price .label { color: var(--muted); font-size: 13px; font-weight: 900; }
-    .hero-price .name { color: var(--navy); font-size: 21px; font-weight: 900; margin: 2px 0 4px; }
-    .hero-price .price { color: var(--blue); font-size: 40px; font-weight: 900; line-height: 1.1; }
-    .hero-price .price small { color: #42536a; font-size: 15px; }
     .worry-layout {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -973,8 +958,6 @@
       .hero .hero-actions { order: 7; }
       .hero-photo { position: static; width: 100%; }
       .hero-photo img { height: clamp(240px, 40vw, 330px); }
-      .hero-price { position: relative; z-index: 2; inset: auto; width: min(92%, 520px); margin: -44px auto 0; padding: 20px; }
-      .hero-price .price { font-size: 36px; }
       .expert-comment { grid-template-columns: 78px 1fr; }
       .expert-comment img { width: 78px; height: 78px; }
     }
@@ -1014,13 +997,6 @@
       .visual { position: static; min-height: 0; }
       .hero-photo { position: static; width: 100%; }
       .hero-photo img { height: clamp(240px, 40vw, 330px); }
-      .hero-price {
-        position: relative;
-        z-index: 2;
-        inset: auto;
-        width: min(92%, 520px);
-        margin: -44px auto 0;
-      }
 
       .business { text-align: center; justify-items: center; }
       .plan-band { justify-items: center; text-align: center; }
@@ -1101,10 +1077,6 @@
       .line-panel { padding: 22px 18px; text-align: left; }
       .line-list li { font-size: 14.5px; }
       .hero-photo img { height: clamp(205px, 58vw, 260px); }
-      .hero-price { width: min(94%, 460px); margin-top: -36px; padding: 18px; }
-      .hero-price .name { font-size: 18px; }
-      .hero-price .price { font-size: 32px; }
-      .hero-price .price small { font-size: 13.5px; }
 
       .grid-2,
       .grid-3,
@@ -1194,7 +1166,6 @@
       .hero-copy { font-size: 14.5px; }
       .btn { font-size: 13.5px; padding: 13px 14px; }
       .mobile-cta .btn { font-size: 13.5px; padding: 12px 5px; }
-      .hero-price .price { font-size: 29px; }
       .price { font-size: 27px; }
       .recommended .price { font-size: 34px; }
       .worry-body { padding: 18px 16px; }
@@ -1264,15 +1235,6 @@
         <div class="visual" aria-label="診断サービスのイメージ">
           <div class="hero-photo">
             <img src="assets/hero-driver.png" alt="運転中のドライバーと車のイメージ">
-          </div>
-          <div class="hero-price">
-            <div class="label">まず確認できること</div>
-            <div class="name">運転の健康診断</div>
-            <div class="price">LINE<small>で案内</small></div>
-            <div class="price-list">
-              <div><span>✓</span>無料動画で安全運転の考え方を確認</div>
-              <div><span>✓</span>必要に応じて運転診断・継続プログラムへ</div>
-            </div>
           </div>
         </div>
       </div>
