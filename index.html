@@ -483,49 +483,6 @@
       font-weight: 700;
       margin-top: 18px;
     }
-    .line-note {
-      margin-top: 12px;
-      color: #557066;
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .line-panel {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 26px;
-      align-items: center;
-      margin-top: 34px;
-      padding: 30px;
-      border-radius: 22px;
-      border: 1px solid #bfe8cb;
-      background: linear-gradient(135deg, #f4fff7, #fff);
-      box-shadow: var(--shadow);
-    }
-    .line-panel h3 {
-      color: #075f2a;
-      font-size: clamp(22px, 2.5vw, 30px);
-      line-height: 1.45;
-      margin: 0 0 12px;
-      font-weight: 900;
-      text-wrap: balance;
-    }
-    .line-panel p { color: #335445; margin: 0 0 16px; }
-    .line-list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .line-list li {
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: #fff;
-      color: #245b36;
-      font-size: 14px;
-      font-weight: 900;
-      border: 1px solid #d6efdd;
-    }
 
     .sample-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 24px; margin-top: 34px; }
     .sample-value-grid { grid-template-columns: repeat(2, 1fr); }
@@ -979,7 +936,6 @@
       .diagnosis,
       .sample-grid,
       .plan-band,
-      .line-panel,
       .free-band,
       .business { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
@@ -989,7 +945,6 @@
          （width:100% がないと grid item が auto margin で縮む） */
       .pricing-grid,
       .free-band,
-      .line-panel,
       .about-photo,
       .diagnosis-panel,
       .plan-band > *,
@@ -1015,7 +970,6 @@
       .hero-copy,
       .about-text p,
       .diagnosis-text p,
-      .line-panel p,
       .message-box,
       .plan-band p,
       .final p { font-size: 15.5px; }
@@ -1080,8 +1034,6 @@
       .hero-actions { gap: 10px; margin-top: 22px; }
       .hero-actions .btn { width: 100%; min-height: 48px; padding: 13px 16px; }
       .line-benefits { grid-template-columns: 1fr; }
-      .line-panel { padding: 22px 18px; text-align: left; }
-      .line-list li { font-size: 14.5px; }
       .hero-photo img { height: clamp(205px, 58vw, 260px); }
 
       .grid-2,
@@ -1106,7 +1058,6 @@
       .diagnosis-text h2 { font-size: clamp(21px, 5.4vw, 26px); line-height: 1.5; }
       .about-text p,
       .diagnosis-text p,
-      .line-panel p,
       .message-box,
       .philosophy,
       .plan-band p,
@@ -1298,29 +1249,6 @@
           <p>単に「気をつけましょう」と伝えるのではなく、実際の運転映像をもとに、自分では気づきにくい確認不足や危険につながる運転の癖を確認します。</p>
           <p>自分の運転の実態に気づき、安全をつくる運転を身につけることで、事故から遠ざかる運転習慣をつくることを目指します。</p>
           <div class="philosophy">大切にしているのは、事故を怖がらせることではありません。自分の運転の実態に気づき、<strong>安全をつくる運転</strong>を身につけることです。</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="line" class="section">
-      <div class="wrap">
-        <p class="eyebrow">LINE GUIDE</p>
-        <h2 class="title">まずはLINEで、無料動画とサービス案内を受け取る</h2>
-        <p class="lead">個人向けサービスの詳しい案内、無料動画、運転診断や動画学習プランの情報は、LINE公式アカウントから順次ご案内します。</p>
-        <div class="line-panel">
-          <div>
-            <h3>LINE追加後に届く内容</h3>
-            <p>いきなり申込みではなく、まずは無料動画で「運転の健康診断」の考え方を確認できます。気になる方はLINEから運転診断や継続プログラムについて相談できます。</p>
-            <a class="btn btn-line" href="https://lin.ee/1m3N6yT" data-line-link>LINE公式アカウントを追加する</a>
-            <div class="line-note">LINE追加後、無料動画や各サービスの詳しい案内を受け取れます。</div>
-          </div>
-          <ul class="line-list">
-            <li>安全運転に関する無料動画</li>
-            <li>パーソナル運転診断の詳しい案内</li>
-            <li>全60本の動画学習プランの案内</li>
-            <li>セミナーアーカイブ・無料コンテンツの案内</li>
-            <li>継続プログラムの準備状況と申込み方法</li>
-          </ul>
         </div>
       </div>
     </section>
