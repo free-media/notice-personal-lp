@@ -716,22 +716,21 @@
     .price-list { display: grid; gap: 8px; margin: 16px 0 22px; color: #42536a; font-size: 14px; font-weight: 700; }
     .recommended .price-list { color: #eef7ff; }
     .price-list span { color: var(--green); margin-right: 6px; }
-    .plan-tag {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      min-height: 28px;
-      padding: 4px 11px;
-      border-radius: 999px;
-      background: #eef7ff;
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 900;
-      margin-bottom: 12px;
+    .price-list .device-included {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
     }
-    .recommended .plan-tag {
-      background: rgba(255, 255, 255, .16);
-      color: #fff;
+    .price-list .device-included span { margin-right: 0; }
+    .device-included strong,
+    .device-included small { display: block; }
+    .device-included small {
+      margin-top: 4px;
+      color: inherit;
+      font-size: 12.5px;
+      line-height: 1.65;
+      font-weight: 700;
+      opacity: .88;
     }
     .price-meta {
       display: grid;
@@ -1166,11 +1165,11 @@
           <div class="badge">個人ドライバー向け｜家族で確認できる、運転の健康診断</div>
           <h1><span class="line">あなたの運転映像から</span><span class="line line-tight"><span class="accent">事故リスク</span>を専門家が診断</span></h1>
           <p class="hero-copy">ノーティス安全運転塾は、専用ドライブレコーダーで撮影した実際の運転映像をもとに、自分では気づきにくい運転の癖や事故につながるリスクを確認する個人向けサービスです。</p>
-          <p class="hero-copy">まずは無料動画やサービス内容をLINEで受け取り、動画学習・パーソナル運転診断・継続プログラムの違いを確認できます。</p>
+          <p class="hero-copy">まずは無料動画やサービス内容をLINEで受け取り、LINE運転動画学習プラン・パーソナル運転診断・ノーティス安全運転塾プランの違いを確認できます。</p>
           <div class="line-benefits">
             <div>安全運転に関する無料動画</div>
             <div>運転診断の案内</div>
-            <div>動画学習プランの案内</div>
+            <div>LINE運転動画学習プランの案内</div>
             <div>セミナー・無料コンテンツの案内</div>
           </div>
           <div class="hero-actions">
@@ -1317,7 +1316,7 @@
           <div class="step"><div class="step-num"><small>STEP</small>3</div><div><h3>リスクのある場面を抽出</h3><p>運転映像から、停止、右左折、視線、車間距離など、事故リスクにつながりやすい場面を確認します。</p></div></div>
           <div class="step"><div class="step-num"><small>STEP</small>4</div><div><h3>運転の癖をレポート化</h3><p>自分では気づきにくい確認不足や運転の癖を、診断結果レポートとして整理します。</p></div></div>
           <div class="step"><div class="step-num"><small>STEP</small>5</div><div><h3>映像や解説で結果を確認</h3><p>診断結果はレポート、必要に応じた専門家の解説動画などで確認できます。</p></div></div>
-          <div class="step"><div class="step-num"><small>STEP</small>6</div><div><h3>改善する運転動作を学ぶ</h3><p>診断後は、動画学習や継続プログラムを通じて、安全をつくる運転動作を日々の運転で実践します。</p></div></div>
+          <div class="step"><div class="step-num"><small>STEP</small>6</div><div><h3>改善する運転動作を学ぶ</h3><p>診断後は、動画学習やノーティス安全運転塾プランを通じて、安全をつくる運転動作を日々の運転で実践します。</p></div></div>
         </div>
       </div>
     </section>
@@ -1357,8 +1356,7 @@
         <p class="lead">まず知識を学びたい方、映像で運転状態を確認したい方、約6ヶ月かけて継続的に見直したい方に分けてご案内します。詳しい申込み方法はLINEでご確認ください。</p>
         <div class="pricing-grid">
           <div class="card price-card">
-            <div class="plan-tag">プランA</div>
-            <h3>動画学習プラン</h3>
+            <h3>LINE運転動画学習プラン</h3>
             <div class="price">1,980<small>円（税込）/ 月</small></div>
             <p>診断を受ける前に、まず安全運転の知識や運転ルーティンを学びたい方向けです。</p>
             <div class="price-meta">
@@ -1375,7 +1373,6 @@
           </div>
           <div class="card price-card recommended">
             <div class="ribbon">おすすめ</div>
-            <div class="plan-tag">プランB</div>
             <h3>パーソナル運転診断</h3>
             <!-- TODO: 提供範囲・専門家解説動画の条件は正式決定後に更新する。 -->
             <div class="price">19,800<small>円（税込）</small></div>
@@ -1393,8 +1390,7 @@
             </div>
           </div>
           <div class="card price-card">
-            <div class="plan-tag">プランC</div>
-            <h3>継続プログラム</h3>
+            <h3>ノーティス安全運転塾プラン</h3>
             <div class="price">99,000<small>円（税込）</small></div>
             <p>診断だけでなく、約6ヶ月間の教育と再診断まで受けたい方向けです。</p>
             <div class="price-meta">
@@ -1408,6 +1404,13 @@
               <div><span>✓</span>安全運転ルーティンの実践</div>
               <div><span>✓</span>2回目の診断</div>
               <div><span>✓</span>行動変化の確認</div>
+              <div class="device-included">
+                <span>✓</span>
+                <div>
+                  <strong>STM-102 ドライブレコーダー【2カメラ】</strong>
+                  <small>シガーアダプター電源ケーブル付きがもらえる<br>（価格：50,600円）</small>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1420,16 +1423,16 @@
     <section class="section section-soft">
       <div class="wrap">
         <p class="eyebrow">CONTINUOUS SUPPORT</p>
-        <h2 class="title">継続プログラムは、診断後に必要な方へご案内します</h2>
+        <h2 class="title">ノーティス安全運転塾プランは、診断後に必要な方へご案内します</h2>
         <div class="plan-band">
           <div>
-            <p style="margin: 0 0 14px; color: #42536a;">継続プログラムでは、初回診断、動画学習、LINEによる質問サポート、安全運転ルーティンの実践、2回目の診断を通じて、行動変化を確認する流れを想定しています。</p>
-            <p style="margin: 0 0 14px; color: #42536a;">まずは無料動画やサービス案内を確認し、必要に応じてパーソナル運転診断や継続プログラムをご検討ください。</p>
-            <p style="margin: 0; color: #42536a;">継続プログラムにおける機材の取り扱いは、プラン案内時にご説明します。</p>
+            <p style="margin: 0 0 14px; color: #42536a;">ノーティス安全運転塾プランでは、初回診断、動画学習、LINEによる質問サポート、安全運転ルーティンの実践、2回目の診断を通じて、行動変化を確認する流れを想定しています。</p>
+            <p style="margin: 0 0 14px; color: #42536a;">まずは無料動画やサービス案内を確認し、必要に応じてパーソナル運転診断やノーティス安全運転塾プランをご検討ください。</p>
+            <p style="margin: 0; color: #42536a;">STM-102 ドライブレコーダー【2カメラ】を、シガーアダプター電源ケーブル付きでお渡しします。</p>
           </div>
           <div>
-            <div class="pending-price">詳細はLINEで案内</div>
-            <div class="notice">診断料金の扱い、機材の返送・再送・プレゼント条件は未確定です。確定前の条件は掲載していません。</div>
+            <div class="pending-price">99,000円（税込）</div>
+            <div class="notice">STM-102 ドライブレコーダー【2カメラ】＋シガーアダプター電源ケーブル付き（価格：50,600円）を含みます。</div>
             <a class="btn btn-line" style="margin-top: 18px; width: 100%;" href="https://lin.ee/1m3N6yT" data-line-link>サービスの案内をLINEで受け取る</a>
           </div>
         </div>
@@ -1473,10 +1476,10 @@
           <details><summary>所有しているドライブレコーダーでは診断できませんか？</summary><p>所有されているドライブレコーダーでは診断できません。最適な分析を行うため、分析システムに対応した専用ドライブレコーダーをお届けします。取り付け方法もご案内しますのでご安心ください。</p></details>
           <details><summary>ドライブレコーダーの取り付けは自分でもできますか？</summary><p>はい、ご自身で取り付けていただく想定です。シガーソケットから電源を取るタイプの機材を使用する場合は、専門的な知識や工具、複雑な配線工事は必要ありません。詳しい取り付け方法は申込み後にご案内します。</p></details>
           <details><summary>診断結果はどのように受け取れますか？</summary><p>運転映像の内容を確認し、診断レポートや必要に応じた専門家による解説動画で結果をお届けする想定です。具体的な納期や受け取り方法は、プラン案内時にご説明します。</p></details>
-          <details><summary>動画学習プランでは何が届きますか？</summary><p>全60本の「安全をつくる運転ルーティン」の動画を、約6ヶ月間でLINE公式アカウントから配信する案です。右左折、車間距離、一時停止などのテーマに偏らず、クイズと解説形式のショート動画で学べるようにします。</p></details>
-          <details><summary>継続プログラムとの違いは何ですか？</summary><p>動画学習プランは、診断を受けずに安全運転の知識や運転ルーティンを学びたい方向けです。パーソナル運転診断は、実際の運転映像をもとに癖やリスクを確認する単発診断です。継続プログラムは、初回診断、動画学習、LINE質問サポート、2回目の診断までを含む流れを想定しています。</p></details>
+          <details><summary>LINE運転動画学習プランでは何が届きますか？</summary><p>全60本の「安全をつくる運転ルーティン」の動画を、約6ヶ月間でLINE公式アカウントから配信する案です。右左折、車間距離、一時停止などのテーマに偏らず、クイズと解説形式のショート動画で学べるようにします。</p></details>
+          <details><summary>ノーティス安全運転塾プランとの違いは何ですか？</summary><p>LINE運転動画学習プランは、診断を受けずに安全運転の知識や運転ルーティンを学びたい方向けです。パーソナル運転診断は、実際の運転映像をもとに癖やリスクを確認する単発診断です。ノーティス安全運転塾プランは、初回診断、動画学習、LINE質問サポート、2回目の診断までを含む流れを想定しています。</p></details>
           <details><summary>プログラム期間中、質問はできますか？</summary><p>はい、ご受講中は専用のLINEにて、ご質問いただけます。動画の内容で分からない点や、日々の運転で悩んだことなど、お気軽にご相談ください。回答方法や対応期間は、各プランの正式案内時にご説明します。</p></details>
-          <details><summary>LINE追加後には何が届きますか？</summary><p>安全運転に関する無料動画、運転診断の案内、動画学習プランの案内、セミナーアーカイブや無料コンテンツの案内を受け取れるように準備しています。</p></details>
+          <details><summary>LINE追加後には何が届きますか？</summary><p>安全運転に関する無料動画、運転診断の案内、LINE運転動画学習プランの案内、セミナーアーカイブや無料コンテンツの案内を受け取れるように準備しています。</p></details>
           <details><summary>法人での申し込みは可能ですか？</summary><p>企業・団体での安全運転教育をご検討の場合は、法人向けページをご確認ください。個人向けページとは、サービス内容や問い合わせ方法が異なります。</p></details>
         </div>
       </div>
@@ -1485,8 +1488,8 @@
     <section id="apply" class="final">
       <div class="wrap">
         <h2>運転にも、健康診断を。<br>まずはLINEで詳しい案内を受け取りませんか？</h2>
-        <p>無料動画で安全運転の考え方を確認したうえで、動画学習プラン、パーソナル運転診断、継続プログラムの違いを確認できます。</p>
-        <p>LINE追加後は、安全運転に関する無料動画、運転診断の案内、動画学習プラン、セミナーアーカイブなどを受け取れるように準備しています。</p>
+        <p>無料動画で安全運転の考え方を確認したうえで、LINE運転動画学習プラン、パーソナル運転診断、ノーティス安全運転塾プランの違いを確認できます。</p>
+        <p>LINE追加後は、安全運転に関する無料動画、運転診断の案内、LINE運転動画学習プラン、セミナーアーカイブなどを受け取れるように準備しています。</p>
         <div class="hero-actions" style="justify-content: center;">
           <a class="btn btn-line" href="https://lin.ee/1m3N6yT" data-line-link>LINE公式アカウントを追加する</a>
           <a class="btn btn-secondary" href="#plans">プランを確認する</a>
@@ -1532,10 +1535,11 @@
           equipment: '専用ドライブレコーダーをレンタル'
         },
         continuousProgram: {
-          priceLabel: '99,000円（税込）'
+          priceLabel: '99,000円（税込）',
+          includedDevice: 'STM-102 ドライブレコーダー【2カメラ】＋シガーアダプター電源ケーブル付き（価格：50,600円）'
         }
       };
-      // TODO: 契約条件、機材返送/再送/プレゼント条件が確定したら SERVICE_CONFIG と表示文言を更新する。
+      // TODO: 契約条件が確定したら SERVICE_CONFIG と表示文言を更新する。
       document.querySelectorAll('[data-line-link]').forEach((link) => {
         link.setAttribute('href', SERVICE_CONFIG.lineUrl);
       });
