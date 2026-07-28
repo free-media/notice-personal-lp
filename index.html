@@ -774,10 +774,14 @@
 
     .plan-band {
       display: grid;
-      grid-template-columns: .82fr 1.18fr;
+      grid-template-columns: 1.18fr .82fr;
       gap: 20px;
       align-items: stretch;
       margin-top: 34px;
+    }
+    @media (min-width: 981px) {
+      .support-includes { order: 1; }
+      .support-price { order: 2; }
     }
     .support-intro {
       max-width: 900px;
