@@ -850,6 +850,22 @@
       line-height: 1.3;
     }
     .support-includes { text-align: left; }
+    .support-device-visual {
+      display: grid;
+      place-items: center;
+      min-height: 180px;
+      margin-bottom: 22px;
+      padding: 18px;
+      overflow: hidden;
+      border: 1px solid #dbe9f6;
+      border-radius: 12px;
+      background: #f6f9fc;
+    }
+    .support-device-visual img {
+      width: 100%;
+      height: 170px;
+      object-fit: contain;
+    }
     .support-list {
       display: grid;
       gap: 10px;
@@ -1178,6 +1194,8 @@
       .price-card { padding: 22px 20px; }
       .price-card h3 { font-size: 18px; }
       .price { font-size: 30px; }
+      .support-device-visual { min-height: 150px; padding: 14px; }
+      .support-device-visual img { height: 145px; }
       .price-card .btn,
       .plan-band .btn,
       .free-card .btn,
@@ -1507,7 +1525,7 @@
       </div>
     </section>
 
-    <section class="section section-soft">
+    <section id="continuous-support" class="section section-soft">
       <div class="wrap">
         <p class="eyebrow">CONTINUOUS SUPPORT</p>
         <h2 class="title">ノーティス安全運転塾 プラン</h2>
@@ -1527,6 +1545,9 @@
             </div>
           </div>
           <div class="support-includes">
+            <div class="support-device-visual">
+              <img src="assets/support-dashcam.webp" alt="STM-102 2カメラドライブレコーダー">
+            </div>
             <h3>プランに含まれるもの</h3>
             <ul class="support-list">
               <li>初回の安全運転パーソナル診断</li>
