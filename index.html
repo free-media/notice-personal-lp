@@ -686,15 +686,31 @@
       margin-top: 34px;
     }
     .target-row {
-      display: grid;
-      gap: 12px;
-      align-content: start;
       min-height: 210px;
-      padding: 22px 20px;
+      overflow: hidden;
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 18px;
       box-shadow: 0 10px 28px rgba(15, 62, 109, .05);
+    }
+    .target-media {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #eaf3fb;
+    }
+    .target-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .target-media--family img { object-position: 50% 42%; }
+    .target-media--self img { object-position: 54% 42%; }
+    .target-media--daily img { object-position: 62% 50%; }
+    .target-content {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      padding: 20px;
     }
     .target-label {
       display: inline-flex;
@@ -708,6 +724,7 @@
       font-size: 13px;
       font-weight: 900;
       white-space: nowrap;
+      width: fit-content;
     }
     .target-row h3 {
       color: var(--navy);
@@ -725,6 +742,25 @@
     .pricing-grid { display: grid; grid-template-columns: .9fr 1.12fr .9fr; gap: 20px; align-items: stretch; margin-top: 36px; }
     .plans-cta { display: flex; justify-content: center; margin-top: 30px; }
     .price-card { padding: 26px; position: relative; }
+    .plan-visual {
+      height: 180px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      border: 1px solid #dbe9f6;
+      border-radius: 12px;
+      background: #eef6fd;
+    }
+    .plan-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .plan-visual--product {
+      padding: 18px;
+      background: #f6f9fc;
+    }
+    .plan-visual--product img { object-fit: contain; }
+    .recommended .plan-visual { border-color: rgba(255, 255, 255, .2); }
     .price-card.recommended {
       background: var(--navy);
       color: #fff;
@@ -1075,7 +1111,7 @@
       .result-card { min-height: auto; padding: 20px 18px; }
       .result-card::after { font-size: 46px; right: 12px; }
       .target-list { grid-template-columns: 1fr; gap: 12px; }
-      .target-row { min-height: auto; padding: 18px; }
+      .target-row { min-height: auto; }
       .target-label { justify-content: flex-start; width: fit-content; }
       .sample-card { padding: 16px; }
       .message-box { padding: 20px; }
@@ -1374,14 +1410,23 @@
       </div>
     </section>
 
-    <section class="section section-soft">
+    <section id="for-you" class="section section-soft">
       <div class="wrap">
         <p class="eyebrow">FOR YOU</p>
         <h2 class="title">このような方におすすめです</h2>
         <div class="target-list">
-          <div class="target-row"><div class="target-label">ご家族</div><h3>高齢の親の運転が心配なご家族</h3><p>親本人にいきなり免許返納を迫るのではなく、まずは運転状態を客観的に確認したい方。</p></div>
-          <div class="target-row"><div class="target-label">ご本人</div><h3>最近、運転に不安を感じるご本人</h3><p>車線変更、右左折、一時停止、駐車など、自分の運転を一度見直したい方。</p></div>
-          <div class="target-row"><div class="target-label">日常運転</div><h3>仕事や日常で車を使い続けたい方</h3><p>これからも安全に運転を続けるために、専門家の視点で確認したい方。</p></div>
+          <div class="target-row">
+            <div class="target-media target-media--family"><img src="assets/target-family.webp" alt="親子で運転診断レポートを確認する様子"></div>
+            <div class="target-content"><div class="target-label">ご家族</div><h3>高齢の親の運転が心配なご家族</h3><p>親本人にいきなり免許返納を迫るのではなく、まずは運転状態を客観的に確認したい方。</p></div>
+          </div>
+          <div class="target-row">
+            <div class="target-media target-media--self"><img src="assets/target-self.webp" alt="車内で自分の運転を振り返るドライバー"></div>
+            <div class="target-content"><div class="target-label">ご本人</div><h3>最近、運転に不安を感じるご本人</h3><p>車線変更、右左折、一時停止、駐車など、自分の運転を一度見直したい方。</p></div>
+          </div>
+          <div class="target-row">
+            <div class="target-media target-media--daily"><img src="assets/target-daily-driving.webp" alt="日常の道を安全に運転するドライバー"></div>
+            <div class="target-content"><div class="target-label">日常運転</div><h3>仕事や日常で車を使い続けたい方</h3><p>これからも安全に運転を続けるために、専門家の視点で確認したい方。</p></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1393,6 +1438,9 @@
         <p class="lead">まず知識を学びたい方、映像で運転状態を確認したい方、約6ヶ月かけて継続的に見直したい方に分けてご案内します。詳しい申込み方法はLINEでご確認ください。</p>
         <div class="pricing-grid">
           <div class="card price-card">
+            <div class="plan-visual">
+              <img src="assets/plan-video-learning.webp" alt="右折時の安全確認を学ぶ動画教材">
+            </div>
             <h3>LINE運転動画学習プラン</h3>
             <div class="price">1,980<small>円（税込）/ 月</small></div>
             <p>診断を受ける前に、まず安全運転の知識や運転ルーティンを学びたい方向けです。</p>
@@ -1410,6 +1458,9 @@
           </div>
           <div class="card price-card recommended">
             <div class="ribbon">おすすめ</div>
+            <div class="plan-visual">
+              <img src="assets/plan-personal-diagnosis.webp" alt="専門家が運転映像と診断レポートを確認する様子">
+            </div>
             <h3>パーソナル運転診断</h3>
             <div class="price">19,800<small>円（税込）</small></div>
             <p>実際の運転映像を使い、自分の癖や事故につながるリスクを確認したい方向けです。</p>
@@ -1426,6 +1477,9 @@
             </div>
           </div>
           <div class="card price-card">
+            <div class="plan-visual plan-visual--product">
+              <img src="assets/plan-school-dashcam.webp" alt="STM-102 2カメラドライブレコーダー">
+            </div>
             <h3>ノーティス安全運転塾プラン</h3>
             <div class="price">99,000<small>円（税込）</small></div>
             <p>診断だけでなく、約6ヶ月間の教育と再診断まで受けたい方向けです。</p>
