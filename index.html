@@ -981,6 +981,29 @@
     .business p { color: var(--muted); margin: 0; font-size: 14px; }
     footer { background: #11243c; color: #bdd0e5; padding: 30px 0 96px; font-size: 13px; }
     footer strong { color: #fff; font-size: 15px; display: block; margin-bottom: 4px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: start;
+    }
+    .footer-company p { margin: 5px 0 0; line-height: 1.75; }
+    .footer-brand { margin-top: 14px; color: #fff; font-weight: 700; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      line-height: 1.75;
+    }
+    .footer-links a { color: #fff; text-underline-offset: 3px; }
+    .footer-copy {
+      margin: 24px 0 0;
+      padding-top: 16px;
+      border-top: 1px solid rgba(189, 208, 229, .24);
+      color: #9fb5cd;
+      font-size: 12px;
+    }
     .mobile-cta {
       display: none;
       position: fixed;
@@ -1216,6 +1239,8 @@
       .business { padding: 24px 20px; text-align: center; }
       .business h2 { font-size: 19px; }
       footer { padding: 26px 0 calc(96px + env(safe-area-inset-bottom)); }
+      .footer-grid { grid-template-columns: 1fr; gap: 18px; }
+      .footer-links { justify-content: flex-start; }
 
       .mobile-cta {
         display: flex;
@@ -1653,8 +1678,20 @@
 
   <footer>
     <div class="wrap">
-      <strong>ノーティス安全運転塾</strong>
-      株式会社ノーティス｜家族で確認できる、運転の健康診断
+      <div class="footer-grid">
+        <div class="footer-company">
+          <strong>株式会社ノーティス</strong>
+          <p>〒570-0012 大阪府守口市大久-1-40-4</p>
+          <p>代表取締役社長 工藤 暢啓</p>
+          <p class="footer-brand">ノーティス安全運転塾｜家族で確認できる、運転の健康診断</p>
+        </div>
+        <nav class="footer-links" aria-label="関連情報">
+          <a href="https://media.notice-myself.com/privacy-policy/">プライバシーポリシー</a>
+          <span aria-hidden="true">｜</span>
+          <a href="https://media.notice-myself.com/tokushoho/">特定商取引法に基づく表記</a>
+        </nav>
+      </div>
+      <p class="footer-copy">© 2026 Notice co.,ltd. All rights reserved.</p>
     </div>
   </footer>
 
