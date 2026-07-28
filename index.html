@@ -507,6 +507,34 @@
       height: 100%;
       border: 0;
     }
+    .video-file-fallback {
+      position: absolute;
+      inset: 0;
+      display: block;
+      color: #fff;
+      text-decoration: none;
+    }
+    .video-file-fallback[hidden] { display: none; }
+    .video-file-fallback img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-file-fallback span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: max-content;
+      max-width: calc(100% - 32px);
+      padding: 11px 17px;
+      border-radius: 999px;
+      background: rgba(15, 62, 109, .92);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      text-align: center;
+    }
     .video-direct-link {
       display: inline-flex;
       align-items: center;
@@ -1456,18 +1484,26 @@
           <div class="card free-card">
             <h3>安全運転の考え方を動画で学ぶ</h3>
             <div class="video-embed">
-              <iframe src="https://www.youtube.com/embed/tb3eJqBH_2M?rel=0" title="安全運転の考え方を動画で学ぶ" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe data-src="https://www.youtube.com/embed/tb3eJqBH_2M?rel=0" title="安全運転の考え方を動画で学ぶ" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <a class="video-file-fallback" href="https://www.youtube.com/watch?v=tb3eJqBH_2M" target="_blank" rel="noopener noreferrer" hidden>
+                <img src="https://i.ytimg.com/vi/tb3eJqBH_2M/hqdefault.jpg" alt="">
+                <span>▶ YouTubeで動画を見る</span>
+              </a>
             </div>
-            <a class="video-direct-link" href="https://youtu.be/tb3eJqBH_2M" target="_blank" rel="noopener noreferrer">YouTubeで動画を見る ↗</a>
+            <a class="video-direct-link" href="https://www.youtube.com/watch?v=tb3eJqBH_2M" target="_blank" rel="noopener noreferrer">YouTubeで動画を見る ↗</a>
             <p>どのような運転行動が事故リスクにつながるのか、短い動画で確認できます。</p>
             <a class="btn btn-line" href="https://lin.ee/1m3N6yT" data-line-link>無料動画や安全運転情報を受け取る</a>
           </div>
           <div class="card free-card">
             <h3>セミナーアーカイブを見る</h3>
             <div class="video-embed">
-              <iframe src="https://www.youtube.com/embed/Rzg4Hs_MyaM?rel=0" title="セミナーアーカイブ" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe data-src="https://www.youtube.com/embed/Rzg4Hs_MyaM?rel=0" title="セミナーアーカイブ" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <a class="video-file-fallback" href="https://www.youtube.com/watch?v=Rzg4Hs_MyaM" target="_blank" rel="noopener noreferrer" hidden>
+                <img src="https://i.ytimg.com/vi/Rzg4Hs_MyaM/hqdefault.jpg" alt="">
+                <span>▶ YouTubeでセミナーを見る</span>
+              </a>
             </div>
-            <a class="video-direct-link" href="https://youtu.be/Rzg4Hs_MyaM" target="_blank" rel="noopener noreferrer">YouTubeでセミナーを見る ↗</a>
+            <a class="video-direct-link" href="https://www.youtube.com/watch?v=Rzg4Hs_MyaM" target="_blank" rel="noopener noreferrer">YouTubeでセミナーを見る ↗</a>
             <p>サービスの考え方や、運転映像を使った事例を動画で確認できます。</p>
             <a class="btn btn-line" href="https://lin.ee/1m3N6yT" data-line-link>サービスの案内をLINEで受け取る</a>
           </div>
@@ -1487,7 +1523,7 @@
           <details><summary>ドライブレコーダーの取り付けは自分でもできますか？</summary><p>はい、ご自身で取り付けていただけます。シガーソケットから電源を取るタイプの機材を使用するため、専門的な知識や工具、複雑な配線工事は必要ありません。詳しい取り付け方法は申込み後にご案内します。</p></details>
           <details><summary>診断結果はどのように受け取れますか？</summary><p>運転映像の内容を確認し、診断レポートと、必要に応じた専門家による解説動画で結果をお届けします。納期や受け取り方法は、申込み後にご案内します。</p></details>
           <details><summary>LINE運転動画学習プランでは何が届きますか？</summary><p>全60本の「安全をつくる運転ルーティン」の動画を、約6ヶ月間でLINE公式アカウントから配信します。右左折、車間距離、一時停止などクイズと解説形式のショート動画で学べます。</p></details>
-          <details><summary>ノーティス安全運転塾プランとの違いは何ですか？</summary><p>LINE運転動画学習プランは、診断を受けずに安全運転の知識や運転ルーティンを学びたい方向けです。パーソナル運転診断は、実際の運転映像をもとに癖やリスクを確認する単発診断です。ノーティス安全運転塾プランは、初回診断、動画学習、LINE質問サポート、2回目の診断までを含みます。</p></details>
+          <details><summary>ノーティス安全運転塾プランとの違いは何ですか？</summary><p>LINE運転動画学習プランは、診断を受けずに安全運転の知識や運転ルーティンを学びたい方向けです。パーソナル運転診断は、実際の運転映像をもとに癖やリスクを確認する単発診断です。ノーティス安全運転塾プランは、初回診断、動画学習、LINE質問サポート、ドライブレコーダー本体、2回目の診断までを含みます。</p></details>
           <details><summary>プログラム期間中、質問はできますか？</summary><p>はい、ご受講中は専用のLINEにて、ご質問いただけます。動画の内容で分からない点や、日々の運転で悩んだことなど、お気軽にご相談ください。回答方法や対応期間は、各プランの申込み時にご案内します。</p></details>
           <details><summary>LINE追加後には何が届きますか？</summary><p>安全運転に関する無料動画、運転診断の案内、LINE運転動画学習プランの案内、セミナーアーカイブや無料コンテンツの案内を受け取れます。</p></details>
           <details><summary>法人での申し込みは可能ですか？</summary><p>企業・団体での安全運転教育をご検討の場合は、法人向けページをご確認ください。個人向けページとは、サービス内容や問い合わせ方法が異なります。</p></details>
@@ -1551,6 +1587,19 @@
       };
       document.querySelectorAll('[data-line-link]').forEach((link) => {
         link.setAttribute('href', SERVICE_CONFIG.lineUrl);
+      });
+
+      document.querySelectorAll('.video-embed').forEach((video) => {
+        const frame = video.querySelector('iframe[data-src]');
+        const fallback = video.querySelector('.video-file-fallback');
+        if (!frame || !fallback) return;
+
+        if (window.location.protocol === 'file:') {
+          frame.remove();
+          fallback.hidden = false;
+        } else {
+          frame.setAttribute('src', frame.dataset.src);
+        }
       });
 
       const header = document.querySelector('.header');
