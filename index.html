@@ -728,7 +728,14 @@
       margin: 0;
     }
 
-    .pricing-grid { display: grid; grid-template-columns: .9fr 1.12fr .9fr; gap: 20px; align-items: stretch; margin-top: 36px; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch;
+      max-width: 860px;
+      margin: 36px auto 0;
+    }
     .plans-cta { display: flex; justify-content: center; margin-top: 30px; }
     .price-card { padding: 26px; position: relative; }
     .plan-visual {
@@ -744,57 +751,12 @@
       height: 100%;
       object-fit: cover;
     }
-    .plan-visual--product {
-      padding: 18px;
-      background: #f6f9fc;
-    }
-    .plan-visual--product img { object-fit: contain; }
-    .recommended .plan-visual { border-color: rgba(255, 255, 255, .2); }
-    .price-card.recommended {
-      background: var(--navy);
-      color: #fff;
-      border-color: var(--navy);
-      transform: translateY(-10px);
-      box-shadow: var(--shadow);
-    }
-    .ribbon {
-      position: absolute;
-      top: -14px;
-      left: 24px;
-      background: var(--orange);
-      color: #fff;
-      border-radius: 999px;
-      padding: 5px 14px;
-      font-size: 12px;
-      font-weight: 900;
-    }
     .price-card h3 { color: var(--navy); font-size: 20px; line-height: 1.45; margin: 0 0 10px; font-weight: 900; }
-    .price-card.recommended h3 { color: #fff; }
     .price-card p { color: var(--muted); margin: 0 0 18px; font-size: 14px; }
-    .price-card.recommended p { color: #dcecff; }
     .price { color: var(--blue); font-size: 34px; font-weight: 900; line-height: 1.1; margin: 12px 0 14px; }
-    .recommended .price { color: #fff; font-size: 45px; }
     .price small { font-size: 14px; color: #42536a; }
-    .recommended .price small { color: #dcecff; }
     .price-list { display: grid; gap: 8px; margin: 16px 0 22px; color: #42536a; font-size: 14px; font-weight: 700; }
-    .recommended .price-list { color: #eef7ff; }
     .price-list span { color: var(--green); margin-right: 6px; }
-    .price-list .device-included {
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-    }
-    .price-list .device-included span { margin-right: 0; }
-    .device-included strong,
-    .device-included small { display: block; }
-    .device-included small {
-      margin-top: 4px;
-      color: inherit;
-      font-size: 12.5px;
-      line-height: 1.65;
-      font-weight: 700;
-      opacity: .88;
-    }
     .price-meta {
       display: grid;
       gap: 8px;
@@ -803,45 +765,11 @@
       font-size: 13.5px;
       font-weight: 700;
     }
-    .recommended .price-meta { color: #eef7ff; }
     .pending-price {
       color: var(--navy);
       font-size: 25px;
       font-weight: 900;
       margin: 12px 0 14px;
-    }
-    .recommended .pending-price { color: #fff; }
-    .credit-note {
-      margin: 16px 0 18px;
-      padding: 14px 16px;
-      border: 1px solid #f7c879;
-      border-radius: 14px;
-      background: #fff8ed;
-      color: #6d4a12;
-      font-size: 13.5px;
-      font-weight: 700;
-      line-height: 1.7;
-    }
-    .recommended .credit-note {
-      background: rgba(255, 255, 255, .12);
-      border-color: rgba(255, 255, 255, .34);
-      color: #fff7e8;
-    }
-    .credit-total {
-      margin: 14px 0 0;
-      padding: 14px 16px;
-      border-radius: 14px;
-      background: #eef7ff;
-      color: var(--navy);
-      font-size: 14px;
-      font-weight: 900;
-      line-height: 1.65;
-    }
-    .credit-total strong {
-      display: block;
-      color: var(--blue);
-      font-size: 20px;
-      line-height: 1.25;
     }
 
     .plan-band {
@@ -1107,7 +1035,6 @@
       .free-band,
       .business { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
-      .price-card.recommended { transform: none; }
 
       /* 1カラム時は中央寄せの読みやすい幅に収める
          （width:100% がないと grid item が auto margin で縮む） */
@@ -1251,10 +1178,6 @@
       .price-card { padding: 22px 20px; }
       .price-card h3 { font-size: 18px; }
       .price { font-size: 30px; }
-      .recommended .price { font-size: 38px; }
-      .credit-note { padding: 13px 14px; font-size: 13px; }
-      .credit-total { padding: 13px 14px; }
-      .credit-total strong { font-size: 18px; }
       .price-card .btn,
       .plan-band .btn,
       .free-card .btn,
@@ -1290,7 +1213,6 @@
       .btn { font-size: 13.5px; padding: 13px 14px; }
       .mobile-cta .btn { font-size: 13.5px; padding: 12px 5px; }
       .price { font-size: 27px; }
-      .recommended .price { font-size: 34px; }
       .worry-body { padding: 18px 16px; }
       .step { grid-template-columns: 46px 1fr; gap: 11px; padding: 15px; }
       .step-num { width: 44px; height: 44px; border-radius: 12px; font-size: 13px; }
@@ -1537,8 +1459,8 @@
     <section id="plans" class="section">
       <div class="wrap">
         <p class="eyebrow">SERVICE PLANS</p>
-        <h2 class="title">目的に合わせて選べる3つのプラン</h2>
-        <p class="lead">まず知識を学びたい方、映像で運転状態を確認したい方、約6ヶ月かけて継続的に見直したい方に分けてご案内します。詳しい申込み方法はLINEでご確認ください。</p>
+        <h2 class="title">目的に合わせて選べる2つのプラン</h2>
+        <p class="lead">まず安全運転の知識を学びたい方、実際の映像で運転状態を確認したい方に分けてご案内します。継続的なサポートについては、次のセクションでご確認いただけます。</p>
         <div class="pricing-grid">
           <div class="card price-card">
             <div class="plan-visual">
@@ -1559,8 +1481,7 @@
               <div><span>✓</span>一時停止、右左折、車間距離などに偏らず配信</div>
             </div>
           </div>
-          <div class="card price-card recommended">
-            <div class="ribbon">おすすめ</div>
+          <div class="card price-card">
             <div class="plan-visual">
               <img src="assets/plan-personal-diagnosis.webp" alt="専門家が運転映像と診断レポートを確認する様子">
             </div>
@@ -1577,33 +1498,6 @@
               <div><span>✓</span>AIによるリスク分析</div>
               <div><span>✓</span>診断結果レポート</div>
               <div><span>✓</span>必要に応じた専門家の解説動画</div>
-            </div>
-          </div>
-          <div class="card price-card">
-            <div class="plan-visual plan-visual--product">
-              <img src="assets/plan-school-dashcam.webp" alt="STM-102 2カメラドライブレコーダー">
-            </div>
-            <h3>ノーティス安全運転塾プラン</h3>
-            <div class="price">99,000<small>円（税込）</small></div>
-            <p>診断だけでなく、約6ヶ月間の教育と再診断まで受けたい方向けです。</p>
-            <div class="price-meta">
-              <div>対象者：継続的に運転を見直したい方</div>
-              <div>提供期間：約6ヶ月間</div>
-            </div>
-            <div class="price-list">
-              <div><span>✓</span>初回診断</div>
-              <div><span>✓</span>動画学習</div>
-              <div><span>✓</span>LINEによる質問サポート</div>
-              <div><span>✓</span>安全運転ルーティンの実践</div>
-              <div><span>✓</span>2回目の診断</div>
-              <div><span>✓</span>行動変化の確認</div>
-              <div class="device-included">
-                <span>✓</span>
-                <div>
-                  <strong>STM-102 ドライブレコーダー【2カメラ】</strong>
-                  <small>シガーアダプター電源ケーブル付きがもらえる<br>（価格：50,600円）</small>
-                </div>
-              </div>
             </div>
           </div>
         </div>
