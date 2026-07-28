@@ -643,7 +643,7 @@
     }
     .target-list {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-top: 34px;
     }
@@ -685,6 +685,7 @@
     }
 
     .pricing-grid { display: grid; grid-template-columns: .9fr 1.12fr .9fr; gap: 20px; align-items: stretch; margin-top: 36px; }
+    .plans-cta { display: flex; justify-content: center; margin-top: 30px; }
     .price-card { padding: 26px; position: relative; }
     .price-card.recommended {
       background: var(--navy);
@@ -1261,7 +1262,6 @@
             <div><span>✓</span>診断結果レポート</div>
             <div><span>✓</span>必要に応じた専門家の解説動画</div>
           </div>
-          <div class="notice">専用機材の発送・返送方法は、申込み後にご案内します。</div>
           <a class="btn btn-line" style="margin-top: 22px; width: 100%;" href="https://lin.ee/1m3N6yT" data-line-link>LINEで運転診断について相談する</a>
         </div>
       </div>
@@ -1346,7 +1346,6 @@
           <div class="target-row"><div class="target-label">ご家族</div><h3>高齢の親の運転が心配なご家族</h3><p>親本人にいきなり免許返納を迫るのではなく、まずは運転状態を客観的に確認したい方。</p></div>
           <div class="target-row"><div class="target-label">ご本人</div><h3>最近、運転に不安を感じるご本人</h3><p>車線変更、右左折、一時停止、駐車など、自分の運転を一度見直したい方。</p></div>
           <div class="target-row"><div class="target-label">日常運転</div><h3>仕事や日常で車を使い続けたい方</h3><p>これからも安全に運転を続けるために、専門家の視点で確認したい方。</p></div>
-          <div class="target-row"><div class="target-label">家族共有</div><h3>家族から指摘され、一度確認したい方</h3><p>感情的な話し合いではなく、映像をもとに冷静に確認したい方。</p></div>
         </div>
       </div>
     </section>
@@ -1373,8 +1372,6 @@
               <div><span>✓</span>3日程度に1回の頻度で学習</div>
               <div><span>✓</span>一時停止、右左折、車間距離などに偏らず配信</div>
             </div>
-            <div class="notice">契約条件は調整中です。月ごとの解約可否や一括契約の扱いは、確定後にLINEでご案内します。</div>
-            <a class="btn btn-line" href="https://lin.ee/1m3N6yT" data-line-link>動画学習プランの案内を受け取る</a>
           </div>
           <div class="card price-card recommended">
             <div class="ribbon">おすすめ</div>
@@ -1394,8 +1391,6 @@
               <div><span>✓</span>診断結果レポート</div>
               <div><span>✓</span>必要に応じた専門家の解説動画</div>
             </div>
-            <div class="credit-note">専用機材の発送・返送方法は、申込み後にご案内します。</div>
-            <a class="btn btn-line" href="https://lin.ee/1m3N6yT" data-line-link>LINEで運転診断について相談する</a>
           </div>
           <div class="card price-card">
             <div class="plan-tag">プランC</div>
@@ -1414,9 +1409,10 @@
               <div><span>✓</span>2回目の診断</div>
               <div><span>✓</span>行動変化の確認</div>
             </div>
-            <div class="notice">初回診断料金の扱い、継続時の機材提供条件は調整中です。詳細はLINEでご案内します。</div>
-            <a class="btn btn-line" href="https://lin.ee/1m3N6yT" data-line-link>継続プログラムの案内を受け取る</a>
           </div>
+        </div>
+        <div class="plans-cta">
+          <a class="btn btn-line" href="https://lin.ee/1m3N6yT" data-line-link>プランの詳しい案内をLINEで受け取る</a>
         </div>
       </div>
     </section>
@@ -1473,7 +1469,7 @@
         <div class="faq">
           <details open><summary>どのような人に向いていますか？</summary><p>最近の運転に少し不安があるご本人、高齢の親の運転を心配しているご家族、仕事や日常で車を使い続けたい方に向いています。運転を責めるためではなく、現在の運転状態を客観的に確認するためのサービスです。</p></details>
           <details><summary>運転に自信がある人でも受ける意味はありますか？</summary><p>はい。本人は安全に運転しているつもりでも、映像で確認すると、確認不足や危険に近づきやすい癖が見つかることがあります。身体の健康診断と同じように、現在の運転状態を確認することが大切です。</p></details>
-          <details><summary>ドライブレコーダーを持っていない場合でも利用できますか？</summary><p>はい。診断では、分析システムに対応した専用のドライブレコーダーをお届けする想定です。専用機材の発送・返送方法は、申込み後にご案内します。</p></details>
+          <details><summary>ドライブレコーダーを持っていない場合でも利用できますか？</summary><p>はい。診断では、分析システムに対応した専用のドライブレコーダーをお届けする想定です。</p></details>
           <details><summary>所有しているドライブレコーダーでは診断できませんか？</summary><p>所有されているドライブレコーダーでは診断できません。最適な分析を行うため、分析システムに対応した専用ドライブレコーダーをお届けします。取り付け方法もご案内しますのでご安心ください。</p></details>
           <details><summary>ドライブレコーダーの取り付けは自分でもできますか？</summary><p>はい、ご自身で取り付けていただく想定です。シガーソケットから電源を取るタイプの機材を使用する場合は、専門的な知識や工具、複雑な配線工事は必要ありません。詳しい取り付け方法は申込み後にご案内します。</p></details>
           <details><summary>診断結果はどのように受け取れますか？</summary><p>運転映像の内容を確認し、診断レポートや必要に応じた専門家による解説動画で結果をお届けする想定です。具体的な納期や受け取り方法は、プラン案内時にご説明します。</p></details>
