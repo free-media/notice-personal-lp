@@ -857,16 +857,131 @@
 
     .plan-band {
       display: grid;
-      grid-template-columns: 1fr .8fr;
-      gap: 26px;
-      align-items: center;
-      padding: 32px;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 20px;
+      align-items: stretch;
       margin-top: 34px;
+    }
+    .support-intro {
+      max-width: 900px;
+      margin: 28px auto 0;
+      text-align: center;
+    }
+    .support-intro h3 {
+      margin: 0 0 16px;
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.55;
+      font-weight: 900;
+    }
+    .support-intro p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.95;
+    }
+    .support-intro p + p { margin-top: 10px; }
+    .support-price,
+    .support-includes {
+      padding: 28px;
       background: #fff;
       border: 1px solid var(--line);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(15, 62, 109, .06);
     }
+    .support-price { text-align: center; }
+    .support-price h3,
+    .support-includes h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: 900;
+    }
+    .support-price .pending-price {
+      margin: 14px 0 18px;
+      color: var(--blue);
+      font-size: 36px;
+      line-height: 1.2;
+    }
+    .support-price .pending-price small {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .support-credit {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .support-credit strong { color: var(--navy); }
+    .support-additional {
+      display: grid;
+      gap: 4px;
+      margin-top: 20px;
+      padding: 17px 16px;
+      border-radius: 12px;
+      background: var(--navy);
+      color: #fff;
+    }
+    .support-additional span {
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+    .support-additional strong {
+      font-size: 23px;
+      line-height: 1.3;
+    }
+    .support-includes { text-align: left; }
+    .support-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #42536a;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .support-list li {
+      position: relative;
+      padding-left: 24px;
+    }
+    .support-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--green);
+      font-weight: 900;
+    }
+    .support-device-note {
+      margin: 20px 0 0;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.8;
+    }
+    .support-device-note strong {
+      display: block;
+      margin-top: 6px;
+      color: var(--navy);
+      font-size: 15px;
+    }
+    .support-next {
+      max-width: 760px;
+      margin: 28px auto 0;
+      text-align: center;
+    }
+    .support-next p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+    }
+    .support-next p + p { margin-top: 4px; }
+    .support-next .btn { margin-top: 20px; }
 
     .free-band {
       display: grid;
@@ -1512,18 +1627,40 @@
     <section class="section section-soft">
       <div class="wrap">
         <p class="eyebrow">CONTINUOUS SUPPORT</p>
-        <h2 class="title">ノーティス安全運転塾プランは、診断後に必要な方へご案内します</h2>
+        <h2 class="title">ノーティス安全運転塾 プラン</h2>
+        <div class="support-intro">
+          <h3>診断後、継続的なサポートが必要な方へ</h3>
+          <p>安全運転パーソナル診断の結果を確認したうえで、継続的に運転を見直したい方には、ノーティス安全運転塾の6ヶ月伴走プランをご案内します。</p>
+          <p>動画学習、LINEによる質問サポート、安全をつくる運転ルーティンの実践、2回目の映像診断を通じて、学んだ内容が実際の運転行動に反映されているかを確認します。</p>
+        </div>
         <div class="plan-band">
-          <div>
-            <p style="margin: 0 0 14px; color: #42536a;">ノーティス安全運転塾プランでは、初回診断、動画学習、LINEによる質問サポート、安全運転ルーティンの実践、2回目の診断を通じて、行動変化を確認します。</p>
-            <p style="margin: 0 0 14px; color: #42536a;">まずは無料動画やサービス案内を確認し、必要に応じてパーソナル運転診断やノーティス安全運転塾プランをご検討ください。</p>
-            <p style="margin: 0; color: #42536a;">STM-102 ドライブレコーダー【2カメラ】を、シガーアダプター電源ケーブル付きでお渡しします。</p>
+          <div class="support-price">
+            <h3>プラン料金</h3>
+            <div class="pending-price">99,000<small>円（税込）</small></div>
+            <p class="support-credit">安全運転パーソナル診断を受けた方は、診断料 <strong>19,800円（税込）をプラン料金に充当</strong>します。</p>
+            <div class="support-additional">
+              <span>診断後の追加費用</span>
+              <strong>79,200円（税込）</strong>
+            </div>
           </div>
-          <div>
-            <div class="pending-price">99,000円（税込）</div>
-            <div class="notice">STM-102 ドライブレコーダー【2カメラ】＋シガーアダプター電源ケーブル付き（価格：50,600円）を含みます。</div>
-            <a class="btn btn-line" style="margin-top: 18px; width: 100%;" href="https://lin.ee/1m3N6yT" data-line-link>サービスの案内をLINEで受け取る</a>
+          <div class="support-includes">
+            <h3>プランに含まれるもの</h3>
+            <ul class="support-list">
+              <li>初回の安全運転パーソナル診断</li>
+              <li>安全運転に関する動画学習</li>
+              <li>LINEによる質問サポート</li>
+              <li>安全をつくる運転ルーティンの実践</li>
+              <li>2回目の映像診断による行動変化の確認</li>
+              <li>STM-102 ドライブレコーダー【2カメラ】</li>
+              <li>シガーアダプター電源ケーブル</li>
+            </ul>
+            <p class="support-device-note">STM-102 ドライブレコーダー【2カメラ】とシガーアダプター電源ケーブルは、プラン料金に含まれています。<strong>機器参考価格：50,600円</strong></p>
           </div>
+        </div>
+        <div class="support-next">
+          <p>まずは無料動画やサービス案内をご確認ください。</p>
+          <p>その後、必要に応じて安全運転パーソナル診断、または6ヶ月伴走プランをご検討いただけます。</p>
+          <a class="btn btn-line" href="https://lin.ee/1m3N6yT" data-line-link>サービスの案内をLINEで受け取る</a>
         </div>
       </div>
     </section>
