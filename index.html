@@ -26,6 +26,14 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
     body {
       margin: 0;
       font-family: "Noto Sans JP", system-ui, sans-serif;
@@ -75,6 +83,16 @@
       border-radius: 18px;
       box-shadow: 0 10px 28px rgba(15, 62, 109, .06);
     }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2, .75, .25, 1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -104,6 +122,11 @@
       background: rgba(255, 255, 255, .95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid #e8eef5;
+      transition: box-shadow .25s ease, background .25s ease;
+    }
+    .header.is-scrolled {
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 8px 24px rgba(15, 62, 109, .10);
     }
     .header-inner {
       height: 68px;
@@ -293,6 +316,13 @@
       border-radius: 26px;
       overflow: hidden;
       background: transparent;
+      opacity: 0;
+      transform: scale(1.035);
+      transition: opacity 1s ease .15s, transform 1.2s cubic-bezier(.2, .75, .25, 1) .15s;
+    }
+    .hero.is-visible .hero-photo {
+      opacity: 1;
+      transform: none;
     }
     .hero-photo img {
       width: 100%;
@@ -1737,6 +1767,33 @@
       const button = document.querySelector('.hamburger');
       const mobileNav = document.querySelector('#mobileNav');
       if (!header || !button || !mobileNav) return;
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealItems = document.querySelectorAll('.section .wrap > *, .section .card, .section .step, .section .target-row, .section .message-box, .section .plan-band');
+      revealItems.forEach((item, index) => {
+        item.classList.add('reveal');
+        item.style.setProperty('--reveal-index', String(index % 6));
+      });
+
+      const hero = document.querySelector('.hero');
+      if (prefersReducedMotion) {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
+        hero?.classList.add('is-visible');
+      } else {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: .12, rootMargin: '0px 0px -40px' });
+        revealItems.forEach((item) => revealObserver.observe(item));
+        if (hero) requestAnimationFrame(() => hero.classList.add('is-visible'));
+      }
+
+      const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
+      updateHeader();
+      window.addEventListener('scroll', updateHeader, { passive: true });
 
       const setOpen = (open) => {
         header.classList.toggle('menu-open', open);
